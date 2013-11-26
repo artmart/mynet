@@ -1,0 +1,154 @@
+{# homepage #}
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+
+{%- block keywords -%}{{'homepage.keywords'|trans}}{%- endblock -%}
+{%- block description -%}{{'homepage.description'|trans}}{%- endblock -%}
+
+{% block stylesheets %}
+  {{parent()}}
+  {% stylesheets output='css/carousel.css'
+      'bundles/mymain/css/carousel.css' 
+      filter='cssrewrite,yui_css' %}
+   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+ {#
+
+<div class="mainads">
+ {% for ad in mainads %}
+         {%if app.request.attributes.get('_locale') == 'am'%}
+              {% if (ad.image is defined) and (ad.image is not null) %}
+                <a href="{{ad.link}}" target="_blank">
+                  {% thumbnail ad.image, 'main' with{'alt': ad.title, 'title' : ad.title} %}
+                </a>
+              {%endif%}
+            {% else %}
+              {% if (ad.enimage is defined) and (ad.enimage is not null) %}
+                <a href="{{ad.enlink}}" target="_blank">
+                  {% thumbnail ad.enimage, 'main' with{'alt': ad.title, 'title' : ad.title} %}
+                </a>
+              {%endif%}
+            {%endif%}
+         {% endfor %}   
+  
+  </div>
+#}  
+     
+{%block slider %}
+     <div id="slider-container" class="clearfix theme-default">
+     <div id="slider_container_2">
+        <div id="SliderName_2" class="SliderName_2">
+          {% for slider in sliders %}
+            {% if (slider.image is defined) and (slider.image is not null) %}
+              {% thumbnail slider.image, 'list' with{'alt': slider.name, 'title' : slider.name} %}
+            {% endif %}	
+          {% endfor %}
+        </div>
+        
+        <div id="SliderNameNavigation_2"></div>
+        <script type="text/javascript">
+        effectsDemo2 = 'rain,stairs,fade';
+        var demoSlider_2 = Sliderman.slider({container: 'SliderName_2', width: 690, height: 300, effects: effectsDemo2,
+                display: {
+                        autoplay: 3000,
+                        loading: {background: '#000000', opacity: 0.5, image: '/bundles/mymain/images/img/loading.gif'},
+                        buttons: {hide: true, opacity: 1, prev: {className: 'SliderNamePrev_2', label: ''}, next: {className: 'SliderNameNext_2', label: ''}},
+                        description: {hide: true, background: '#000000', opacity: 0.4, height: 50, position: 'bottom'},
+                        navigation: {container: 'SliderNameNavigation_2', label: '<img src="/bundles/mymain/images/img/clear.gif" />'}
+                         }
+                         });
+          </script>
+          
+       </div>
+  </div>  
+{% endblock %}    
+{%block main%}   
+{#<div class="welcome-message">
+  <h2 class="title">{{'texts.welcometitle'|trans}}</h2>
+  <div class="text">{{'texts.welcometexts'|trans|raw}}</div>
+</div>
+#}
+  <div class="happerning clearfix">
+  {#<h2 class="title"><a href="{{ path('my_events') }}">{{'events_title'|trans}}</a></h2>
+  <ul id="events-list" class="jcarousel-skin-events">
+		{% for id,event in events %}
+        <li>
+          <div class="section">
+            <a href="{{path('my_event_detailed', {'category_slug': event.eventCatId.slug,'event_slug': event.slug})}}">
+              <img src="{% path event.image, 'list' %}" class="event_pics" alt="{{event.title}}" />
+              <div class="text">
+                  <div class="date">{{event.startDate|date('d/m/Y G:i')}}</div>
+              </div>
+              <div class="title_home">
+                   {{event.title|raw}}
+                </div>
+                <div class="text">
+                  <div class="short_content">{{event.contentShort|raw}}</div>
+                </div>
+              </a>
+            </div>
+          </li>
+     {% endfor %}
+  </ul>
+#}
+  <h2 class="title"><a href="{{ path('my_main_main_news') }}">{{'menutop.news'|trans}}</a></h2>
+ <ul id="events-list2" class="jcarousel-skin-events">
+		{% for new in news %}
+        <li>
+          <div class="section">
+            <a href="{{path('my_news_detailed', {'slug': new.slug})}}">
+              <img src="{% path new.image, 'list' %}" class="event_pics1" alt="{{new.title}}" />
+              {#<div class="text">
+                  <div class="date">{new.startDate|date('d/m/Y G:i')}</div>
+              </div>#}
+              <div class="title_home">{{new.title|raw}}</div>
+               {# <div class="text">
+                <div class="short_content">{{new.shortcontent|raw}}</div>
+                </div>#}
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+        </ul>
+ <h2 class="title"><a href="{{ path('my_main_concurs_concurs') }}">{{'menutop.new'|trans}}</a></h2>     
+     
+ 
+  
+ </div>
+{% endblock %}
+{%block rightmenu%}   
+{% include 'MYMainBundle:Main:rightmenu.html.twig' %}
+{% endblock %}
+   
+{%block carucell%}   
+<ul id="bottom-menu" class="jcarousel-skin-tango">
+  <li>
+    <a href="{#{ path('my_page_sub', {page:'culture',sub:'ballet-of-yerevan-city'}) }#}">
+      <h2 class="baletc">{{'menubottom.balet'|trans}}</h2>
+        {#<img src="{{asset('bundles/mymain/images/ballet.png')}}" id="ballet_pic" alt="{{'menubottom.balet'|trans}}" />#}
+    <div class="jc_item1"></div>
+    </a>
+  </li>
+  <li>
+    <a href="{#{ path('my_page_sub', {page:'culture',sub:'theatre'}) }#}">
+      <h2 class="theaterc">{{'menubottom.theater'|trans}}</h2>
+        {#<img src="{{asset('bundles/mymain/images/theater.png')}}" id="theatre_pic" alt="{{'menubottom.theatre'|trans}}" />#}
+     <div class="jc_item2"></div>
+    </a>
+  </li>
+  <li>
+    <a href="{#{ path('my_page_sub', {page:'culture',sub:'gallery'}) }#}">
+      <h2 class="galleriesc">{{'menubottom.gallery'|trans}}</h2>
+        {#<img src="{{asset('bundles/mymain/images/gallery.png')}}" id="gallery_pic" alt="{{'menubottom.gallery'|trans}}" />#}
+      <div class="jc_item3"></div>
+    </a>
+  </li>
+  <li>
+    <a href="{#{ path('my_page_sub', {page:'culture',sub:'matenadaran'}) }#}">
+      <h2 class="matenadaranc">{{'menubottom.matenadaran'|trans}}</h2>
+        {#<img src="{{asset('bundles/mymain/images/matenadaran.png')}}" id="matenadaran_pic" alt="{{'menubottom.matenadaran'|trans}}" />#}
+    <div class="jc_item4"></div>
+    </a>
+  </li>
+</ul>
+{% endblock %}  

@@ -1,0 +1,31 @@
+{# page #}
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+{%- block title -%}
+{% for page in info %}
+MYYerevan | {{page.title}}
+{% endfor %}
+{%- endblock -%}
+
+{%- block keywords -%}
+{% for page in info %}
+{{page.metaKw}}
+{% endfor %}
+{%- endblock -%}
+
+{%- block description -%}
+{% for page in info %}
+{{page.metaDesc}}
+{% endfor %}
+{%- endblock -%}
+    
+{%block main%}
+	{% for id,page in info %}
+<div class="page">
+  <h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{page.title}}</h2>
+  <div>
+		{{page.content|raw}}
+  </div>
+</div>
+		{% endfor %}
+</div>
+{% endblock %}

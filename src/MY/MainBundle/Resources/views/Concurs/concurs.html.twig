@@ -1,0 +1,42 @@
+{# concurs #}
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+
+{%- block title -%}{{parent()}} | News{%- endblock -%}
+{%- block keywords -%}{{'news.keywords'|trans}}{%- endblock -%}
+{%- block description -%}{{'news.description'|trans}}{%- endblock -%}
+
+{%block main%}
+<h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{'menutop.news'|trans}}</h2>
+<div class="category">
+  {% for item in items %}
+    <div class="item-row clearfix">
+      {% if item.image %}
+        <a href="{{path('my_main_concurs_detailed', {'slug': item.slug})}}" class="read-more">
+          <img src="{% path item.image, 'list' %}" class="news_pics" alt="{{item.title}}" />
+        {#% if (list.image is defined) and (list.image is not null) %}
+        {% thumbnail list.image, 'list' with{'alt': list.title, 'title' : list.title , 'width':'190px' , 'height': '130px'} %}
+       {% endif %#}
+        
+        
+        </a>
+      {% endif %}
+
+      <h4>{{ item.concursDate|date('d/m/Y') }}</h4>
+      <br />
+
+      <h3 class="item-title">
+        <a href="{{path('my_main_concurs_detailed', {'slug': item.slug})}}">{{item.title}}</a>
+      </h3>
+
+      <div class="intro"> 
+        {{item.shortContent|raw}} <a href="{{path('my_main_concurs_detailed', {'slug': item.slug})}}" class="read-more">{{'more'|trans}}</a>
+      </div>
+    </div>
+  {% endfor %}
+    
+  {# navigation #}
+    <div>{{knp_pagination_render(items)}}</div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,5 @@
+{% if admin.hasRoute('show') %}
+    <a href="{{ admin.generateObjectUrl('show', object) }}" class="btn edit_link" title="{{ 'action_show'|trans({}, 'SonataAdminBundle') }}">
+      <i>Show</i>
+    </a>
+{% endif %}

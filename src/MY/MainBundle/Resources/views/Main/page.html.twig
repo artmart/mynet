@@ -1,0 +1,41 @@
+{# page #}
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+{%- block title -%}
+{% for page in info %}
+MYYerevan | {{page.title}}
+{% endfor %}
+{%- endblock -%}
+
+{%- block keywords -%}
+{% for page in info %}
+{{page.metaKw}}
+{% endfor %}
+{%- endblock -%}
+
+{%- block description -%}
+{% for page in info %}
+{{page.metaDesc}}
+{% endfor %}
+{%- endblock -%}
+
+{%block main%}
+	{% for id,page in info %}
+<div class="page">
+  <h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{page.title}}</h2>
+  <div>
+		{{page.content|raw}}
+  </div>
+</div>
+		{% endfor %}
+
+  <!-- AddThis Button BEGIN -->
+  <div class="addthis_toolbox addthis_default_style ">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_pinterest_pinit"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f50664b6e50a39a"></script>
+  <!-- AddThis Button END -->
+</div>
+{% endblock %}

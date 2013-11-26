@@ -1,0 +1,44 @@
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+
+{%- block title -%}{%- endblock -%}
+
+{%- block keywords -%}{%- endblock -%}
+
+{%- block description -%}{%- endblock -%}
+
+{%block main%}
+
+<div class="category">
+  <h2 class="terms_title">{{ 'tou_title'|trans|raw }}</h2>
+  
+  <div>
+    <p class="sub_title">{{ 'tou.copy_title'|trans|raw }}</p>
+    <p class="sub_content">&COPY;2011-{{ "now"|date("Y") }} {{ 'tou.copy'|trans|raw }}</p>
+    
+    <p class="sub_title">{{ 'tou.legal_title'|trans|raw }}</p>
+    <p class="sub_content">{{ 'tou.legal'|trans|raw }}</p>
+    
+    <p class="sub_title">{{ 'tou.user_agreement_title'|trans|raw }}</p>
+    <p class="sub_content">{{ 'tou.user_agreement'|trans|raw }}</p>
+    
+    <p class="sub_title">{{ 'tou.restrictions_title'|trans|raw }}</p>
+    <p class="sub_content">{{ 'tou.restrictions'|trans|raw }}</p>
+    
+    <p class="sub_title">{{ 'tou.webcam_title'|trans|raw }}</p>
+    <p class="sub_content">{{ 'tou.webcam'|trans|raw }}</p>
+    
+    <p class="sub_title">{{ 'tou.submissions_title'|trans|raw }}</p>
+    <p class="sub_content">{{ 'tou.submissions'|trans|raw }}</p>
+    
+    <p class="sub_title">{{ 'tou.links_title'|trans|raw }}</p>
+    <p class="sub_content">{{ 'tou.links'|trans|raw }}</p>
+    
+    <p class="sub_title">{{ 'tou.conduct_title'|trans|raw }}</p>
+    <p class="sub_content">{{ 'tou.conduct'|trans|raw }}</p>
+    
+    <p class="sub_title">{{ 'tou.contact_title'|trans|raw }}</p>
+    <p class="sub_content">{{ 'tou.contact'|trans|raw }}</p>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{# MYMainBundle:Project:index #}
+{% extends 'MYMainBundle::leftColLayout.html.twig' %}
+
+{#% block title %}{{'discussed_suggestions.title'|trans}} | MYerevan{% endblock %}
+{% block description %}{{'discussed_suggestions.description'|trans}}{% endblock %}
+{% block keywords %}{{'discussed_suggestions.keywords'|trans}}{% endblock %#}
+  
+{% block stylesheets %}
+  {{parent()}}
+  {% stylesheets output='css/list.css'
+      'bundles/mymain/css/list.css' 
+      filter='less,cssrewrite,yui_css' %}
+   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+         
+{% block rightContent %}
+  
+  {# list all projects #}
+  <div class="list">
+         {#   <div id="forbuttons">{{ knp_menu_render('MYMainBundle:Builder:topbutMenu', { 'currentAsLink': false}) }}</div> #}
+    {% for suggestion in pagination %}
+      <div class="list-block">
+        {# include suggestion block#}
+        {% include 'MYMainBundle:Suggestion:archiveBlock.html.twig' with {'suggestion': suggestion}%}
+        
+        {# socials #}
+        <div>
+          {# facebook url #}
+          {% set facebook_url = facebook_server_url ~ path('suggestion', {'slug': suggestion.slug, '_locale': 'am'}) %}
+          
+          <div class="fl">
+            {# like button #}
+            <div class="fb-like" data-href="{{facebook_url}}" data-send="false" data-layout="button_count" data-width="75" data-show-faces="true"></div>
+          </div>
+            
+          {# addthis #}
+          <div class="share-holder">
+            {#% include 'MYMainBundle::addthis.html.twig' with{'title': suggestion.title, 'url': facebook_url, 'description': suggestion.intro}%#}
+          </div>
+          
+          <br class="fcb" />
+        </div> 
+      </div>
+    {% else %}
+        {{'no.suggestions'|trans}}
+    {% endfor %}
+     
+    {#  navigation #}
+    {{ knp_pagination_render(pagination)|raw }}
+  </div>
+{% endblock%}
+    
+    

@@ -1,0 +1,54 @@
+<div class="clearfix" id="right-sidebar">
+<div class="mayor">
+{#############Right Menu##############}      
+{#{ knp_menu_render('MYMainBundle:Builder:rightMenu', { 'currentAsLink': false}) }#}
+{###########################}
+
+{#Polling#}
+{#
+<div>
+{% if question is not empty %}
+<div id="poll">
+    {% for a_question in question %}
+      {% if ((is_granted('ROLE_USER')) or (is_granted('ROLE_FACEBOOK'))) and (a_question in user.votes) %}
+        {% include 'YitPollBundle:Default:show_results.html.twig' with{'question': question} %}
+      {% else %}
+        {% include 'YitPollBundle:Default:show_poll.html.twig' with{'question': question} %}
+      {% endif %}
+   {% endfor %}
+</div>
+{% endif %}
+</div>
+#}
+
+
+{##### bunners ########}
+<h2>Գովազդ</h2>             
+{% for ad in rightads %}
+<br />
+  {% if (ad.image is defined) and (ad.image is not null) %}
+       <a href="{{ad.link}}" target="_blank">
+         {% thumbnail ad.image, 'right' with{'alt': ad.title, 'title' : ad.title} %}
+       </a>
+  {%endif%}
+<br />
+{% endfor %}   
+<br />
+<h2>Սոցիալական ցանցեր</h2>  
+{######Facebook#########################}       
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=277653518918970";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like-box" data-href="https://www.facebook.com/pages/Mynetam/117740095102442" data-width="150" data-height="405" data-show-faces="true" data-stream="false" data-header="true">
+</div> 
+<br /><br />            
+            
+</div> 
+</div>       
+
+

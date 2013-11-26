@@ -1,0 +1,134 @@
+{# MYMainBundle:Suggestion:show #}
+{% extends 'MYMainBundle::leftColLayout.html.twig' %}
+
+{# meta information #}
+{#% block title %}MYerevan - {{object.title}}{% endblock %}
+{% block description %}{{'meta.description'|trans}} - {{object.title}}{% endblock %}
+{% block keywords %}{{'meta.keywords'|trans}} - {{object.title}}{% endblock %#}
+{% block canonical %} 
+  <link rel="canonical" href="{{ path('suggestion', {'slug': object.slug, '_locale': app.request.attributes.get('_locale')}) }}">
+{% endblock %}
+
+{# css #}
+{% block stylesheets %}
+  {{parent()}}
+  {% stylesheets output='css/list.css'
+      'bundles/mymain/css/list.css' 
+      filter='less,cssrewrite,yui_css' %}
+   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+         
+{# main content #}
+{% block rightContent %}
+  {# list all projects #}
+           {#   <div id="forbuttons">{{ knp_menu_render('MYMainBundle:Builder:topbutMenu', { 'currentAsLink': false}) }}</div>  #}
+      <div class="list-block">
+        <div class="list-title">
+          <span class="list-title-text">
+              {% if object.titleList is not empty%}
+                {{object.titleList}}
+              {% else %}
+                {{object.title}}
+              {% endif %}
+          </span>
+          <span class="list-title-date">{{object.createdAt|date("d.m.Y")}}</span>
+          <br class="fcb" />
+        </div>
+
+        {# shows image#}
+        {% set show_iamge = object.image is not empty %}    
+        {% set user_uploaded = object.path is not empty %}
+          <div class="list-thumb">        
+        {% if show_iamge %}
+            {# show thumbnail #}
+            {% thumbnail object.image, 'list' with{'title': object.title, 'alt': object.title}  %}
+        {% elseif (user_uploaded) and (object.useruploaded == '1') %}
+                  <img src="/uploads/rawimage/{{ object.path }}" alt="{{ object.path }}" title="object.title" width="260" />
+        {% else %}
+            <div class="list-thumb-{{app.request.attributes.get('_locale')}}">
+            </div>
+        {% endif %}
+           </div>
+          
+        <div class="list-text">
+            
+            {# check facebook account #}
+            {% if object.user is not empty%}
+              
+              {# show picture #}
+              {% if object.user.facebookUid is not empty%}
+            <div class="fb_image">
+                <img src="http://graph.facebook.com/{{- object.user.facebookUid -}}/picture?type=square" alt="fb image" />
+            </div>
+              {% endif %}
+                
+              {# show name #}
+              <span class="title">
+              {% if object.user.facebookUid is not empty %}
+                <a href="http://www.facebook.com/{{object.user.facebookUid}}" target="_blank">
+                  {{object.user.firstname}} {{object.user.lastname}}
+                </a>
+              {% else %}
+                {{object.user.firstname}} {{object.user.lastname}}
+              {% endif %}
+              </span>
+              <br />
+            {% endif %}
+              
+            <span>{{'common.suggests'|trans}}</span>
+            <br />
+            <div>{{object.suggestion|raw}}</div>
+            <br />
+            <div>{{object.solution|raw}}</div>
+        </div>     
+                      <br class="fcb" />
+                      
+              <div id="notes">
+                  {% for edited in object.edited %}
+                      {% if (edited == 'am') and (app.request.attributes.get('_locale') == 'am') %}
+                            <span>Խմբագրված է:</span> <br />
+                      {% elseif (edited == 'en') and (app.request.attributes.get('_locale') == 'en') %}
+                            <span>Edited.</span> <br />
+                      {% endif %}
+                  {% endfor %}
+                  {% for translated in object.translated %}
+                      {% if (translated == 'am') and (app.request.attributes.get('_locale') == 'am') %}
+                            <span>Թարգմանված է:</span> <br />
+                      {% elseif (translated == 'en') and (app.request.attributes.get('_locale') == 'en') %}
+                            <span>Translated.</span> <br />
+                      {% endif %}
+                  {% endfor %}
+                  {% for corrected in object.corrected %}
+                      {% if (corrected == 'am') and (app.request.attributes.get('_locale') == 'am') %}
+                            <span>ՈԻղղված է:</span> <br />
+                      {% elseif (corrected == 'en') and (app.request.attributes.get('_locale') == 'en') %}
+                            <span>Corrected.</span> <br />
+                      {% endif %}
+                  {% endfor %}
+              </div>
+                     
+        {% set comment_added = comments is not empty %}
+        {% if comment_added %}
+               {% for comment in comments %}
+           <div class="comment_block">
+               <div class="for_comm_logo"></div>
+               <div class="comm_text">
+                   <span>{{ 'admin_answer' | trans }}{% if app.request.attributes.get('_locale') == 'am' %}`{% else %}:{% endif %}  </span> 
+                   {{comment.comment | raw}}
+               </div>  
+               <span class="comm_date">{{comment.createdAt|date("d.m.Y")}}</span>
+           </div> 
+               {% endfor %}
+        {% endif %} 
+                      
+      </div>
+   
+              
+      {# socials #}
+      {% include 'MYMainBundle::social.html.twig' with{'cpath': path('suggestion', {'slug': object.slug, '_locale': 'am'}), 'title': object.title}%}
+{% endblock%}
+   
+{% block meta %}
+   {% include 'MYMainBundle::socialMeta.html.twig' with{'cpath': path('suggestion', {'slug': object.slug, '_locale': 'am'}), 'title': object.title, 'description': object.intro, 'image': object.image}%}
+{% endblock %}

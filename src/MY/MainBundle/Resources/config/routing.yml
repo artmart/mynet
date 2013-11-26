@@ -1,0 +1,67 @@
+#my_homepage:
+#    pattern: /
+#    defaults: { _controller: MYMainBundle:Main:index }
+
+#my_content_homepage:
+#    pattern: /{_locale}/
+#    defaults: { _controller: MYMainBundle:Main:index }
+#    requirements:
+#        _locale: am|en
+
+#upload:
+#    pattern: /upload/
+#    defaults: { _controller: MYMainBundle:Main:upload }
+
+#my_news_page:
+#    pattern: /{_locale}/news/
+#    defaults: { _controller: MYMainBundle:Main:news }
+
+#my_news_archive_page:
+#    pattern: /{_locale}/news/archive/
+#    defaults: { _controller: MYMainBundle:Main:news }
+
+#my_news_detailed_page:
+#    pattern: /{_locale}/news/{slug}/
+#    defaults: { _controller: MYMainBundle:Main:news_detailed }
+
+#my_event_page:
+#    pattern: /{_locale}/events/
+#    defaults: { _controller: MYMainBundle:Main:events }
+
+#my_event_category_page:
+#    pattern: /{_locale}/events/{category_slug}/
+#    defaults: { _controller: MYMainBundle:Main:events_category }
+
+#my_ev_category_page:
+#    pattern: /{_locale}/eventscategory/{category_slug}/
+#    defaults: { _controller: MYMainBundle:Main:events_category }
+
+#my_event_detailed_page:
+#    pattern: /{_locale}/events/{category_slug}/{event_slug}
+#    defaults: { _controller: MYMainBundle:Main:events_detailed }
+
+#my_gallery:
+#    pattern: /{_locale}/gallery/{type}/
+#    defaults: { _controller: MYMainBundle:Main:gallery }
+
+#my_gallery_more:
+#    pattern: /{_locale}/gallery/{type}/{slug}/
+#    defaults: { _controller: MYMainBundle:Main:gallery_more }
+
+#my_content_page:
+#    pattern: /{_locale}/{page}/
+#    defaults: { _controller: MYMainBundle:Main:page }
+#    requirements:
+#        page:  !admin
+
+#my_content_subpage:
+#    pattern: /{_locale}/{page}/{sub}/
+#    defaults: { _controller: MYMainBundle:Main:page_sub }
+
+page_tree_up:
+    pattern: /admin/page_tree_up/
+    defaults: { _controller: MYMainBundle:PageTreeSort:up }
+
+page_tree_down:
+    pattern: /admin/page_tree_down/
+    defaults: { _controller: MYMainBundle:PageTreeSort:down }

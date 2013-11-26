@@ -1,0 +1,30 @@
+{# page #}
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+
+{%- block keywords -%}{{'events.keywords'|trans}}{%- endblock -%}
+{%- block description -%}{{'events.description'|trans}}{%- endblock -%}
+
+{%block main%}
+
+<div class="category">
+  {% for id,page in pagination %}
+    {% if (page.image is defined) and (page.image is not null) %}
+      {% set ext = page.image.contentType|split('/') %}
+    {% endif %}
+  <div class="item-row clearfix">
+    <a href="{{path('my_event_detailed', {'category_slug': page.slug,'event_slug': page.slug})}}" class="read-more">
+      {% if (page.image is defined) and (page.image is not null) %}
+        <img src="/uploads/media/{{page.image.context}}/0001/01/thumb_{{page.image.id}}_{{page.image.context}}_list.{{ext[1]}}" />
+      {% endif %}
+    </a>
+    <h3 class="item-title">
+      <a href="{{path('my_event_detailed', {'category_slug': page.slug,'event_slug': page.slug})}}">{{page.menuName}}</a>
+    </h3>
+    <a href="{{path('my_event_detailed', {'category_slug': page.slug,'event_slug': page.slug})}}" class="read-more">{{'more'|trans}}</a>
+  </div>
+  {% endfor %}
+  <div>
+    {{ pagination.render()|raw }}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,98 @@
+<div class="item-block">
+  <div class="list-title">
+    <span class="list-title-text">
+      {% if  discus is defined %}
+        {% set curl = path('discussion', {'slug': suggestion.slug}) %}
+      {% else %}
+        {% set curl = path('suggestion', {'slug': suggestion.slug}) %}
+      {% endif %}
+      <a href="{{curl}}" class="page">
+        {% if suggestion.titleList is not empty%}
+          {{suggestion.titleList}}
+        {% else %}
+          {{suggestion.title}}
+        {% endif %}
+      </a>
+    </span>
+    <span class="list-title-date">{{suggestion.createdAt|date("d.m.Y")}}</span>
+    <br class="fcb" />
+  </div>
+
+  {# shows image#}
+  {% set show_iamge = suggestion.image is not empty %}    
+  {% set user_uploaded = suggestion.path is not empty %}
+
+  <div class="list-thumb">
+   {% if show_iamge %}
+      {# show thumbnail #}
+      {% thumbnail suggestion.image, 'list' with{'alt': 'pic', 'title': suggestion.title} %}
+   {% elseif (user_uploaded) and (suggestion.useruploaded == '1') %}
+      <img src="/uploads/rawimage/{{ suggestion.path }}" alt="{{ suggestion.path }}" title="object.title" width="260" />
+   {% else %}
+    <img src="/bundles/mymain/images/noimage_{{app.request.attributes.get('_locale')}}.jpg" width="260" alt="no image" />
+  {% endif %}
+  </div>
+
+  <div class="list-text-suggestion">
+    <div class="text-content">
+      {# check facebook account #}
+      {% if suggestion.user is not empty%}
+
+        {# show picture #}
+        <div class="block-header">
+          {% if suggestion.user.facebookUid is not empty%}
+            <div class="fb_image">
+              <a href="http://www.facebook.com/{{suggestion.user.facebookUid}}" target="_blank">
+                <img src="http://graph.facebook.com/{{- suggestion.user.facebookUid -}}/picture?type=square" alt="{{suggestion.user.firstname}} {{suggestion.user.lastname}}" />
+              </a>
+            </div>
+          {% elseif suggestion.user.firstname is not empty %}
+              {% if app.request.get('_route') == 'suggestions' %}
+               <div class="block-header">
+                   <div class="fb_image">
+                        <img src="/bundles/mymain/images/noimage.jpg" alt="no image" width="50" height="50" />
+                   </div> 
+               </div>
+              {% endif %}
+          {% else %}
+              {% if app.request.get('_route') == 'suggestions' %}
+               <div class="block-header">
+                   <div class="fb_image">
+                        <img src="/bundles/mymain/images/noimage.jpg" alt="no image" width="50" height="50" />
+                   </div> 
+               </div>
+              {% endif %}
+          {% endif %}
+
+          {# show name #}
+          <p>
+            <span class="title">
+               {# display facebook user #}
+              {% if suggestion.user.facebookUid is not empty %}
+                <a href="http://www.facebook.com/{{suggestion.user.facebookUid}}" target="_blank">
+                  {{suggestion.user.firstname}} {{suggestion.user.lastname}}
+                </a>
+              {% elseif suggestion.user.firstname is not empty %}
+                {{suggestion.user.firstname}} {{suggestion.user.lastname}}
+              {% else %}
+                    {% if app.request.get('_route') == 'suggestions' %}
+                        {{ 'noname'|trans }}
+                    {% endif %}
+              {% endif %}
+            </span>
+            <br />
+            {% if app.request.get('_route') == 'suggestions' %}
+                <span>{{'common.suggests'|trans}}</span>
+            {% endif %}
+          </p>
+          
+          <br class="fcl" />
+        </div>
+      {% endif %}
+
+      {{suggestion.intro|raw}}
+      <a href="{{curl}}">{{'common.more'|trans}}</a>
+    </div>
+  </div>
+  <br class="fcl" />
+</div>

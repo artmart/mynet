@@ -1,0 +1,67 @@
+{# page #}
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+
+{%- block title -%}
+{% for page in info %}
+MYYerevan | {{page.title}}
+{% endfor %}
+{%- endblock -%}
+
+{%- block keywords -%}
+{% for page in info %}
+{{page.metaKw}}
+{% endfor %}
+{%- endblock -%}
+
+{%- block description -%}
+{% for page in info %}
+{{page.metaDesc}}
+{% endfor %}
+{%- endblock -%}
+
+{% block javascripts %}
+  {{parent()}}
+  {% javascripts output='js/slideandlight2.js' 
+    '@MYMainBundle/Resources/public/javascript/jquery.prettyPhoto.js'
+    '@MYMainBundle/Resources/public/javascript/news_prettyphoto_on.js'
+    filter='yui_js' %}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+  {% endjavascripts %}
+{% endblock %}
+
+{%block main%}
+
+<div>
+  {% for id,page in info %}
+    <div class="item-detailed clearfix">
+      <h4>{{ page.newsDate|date('d/m/Y') }}</h4>
+      <h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{page.title}}</h2>
+      <div class="intro"> {{page.content|raw}}</div>
+      {% if page.gallery %}
+        <div class="sonata-media-gallery-media-list">
+          {% for i,galleryHasMedia in page.gallery.galleryHasMedias %}
+            <div class="news_gallery">
+	      <a class="sonata-media-gallery-media-item-link" rel="prettyPhoto[gallery2]" href="{% path galleryHasMedia.media, 'reference' %}">
+	        {% thumbnail galleryHasMedia.media, 'list' with{'title': page.title, 'alt': page.title, 'height' : '173'}%}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+    
+
+      <!-- AddThis Button BEGIN -->
+      <div class="addthis_toolbox addthis_default_style ">
+        <a class="addthis_button_facebook_like"></a>
+        <a class="addthis_button_tweet"></a>
+        <a class="addthis_button_pinterest_pinit"></a>
+        <a class="addthis_counter addthis_pill_style"></a>
+      </div>
+      <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f50664b6e50a39a"></script>
+      <!-- AddThis Button END -->
+
+</div>
+</div>
+{% endblock %}

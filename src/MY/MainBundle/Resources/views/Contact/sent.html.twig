@@ -1,0 +1,12 @@
+{% extends 'MYMainBundle::leftColLayout.html.twig' %}
+
+{#% block title %}{{'feedback.title'|trans}} | mYnet{% endblock %}
+{% block description %}{{'feedback.description'|trans}}{% endblock %}
+{% block keywords %}{{'feedback.keywords'|trans}}{% endblock %#}
+
+{# css #}
+{% block rightContent %}
+<br />
+<h2 class="confirmed" align="center">{{ 'contact.sent'|trans }}</h2>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{# MYMainBundle:Suggestion:show #}
+{% extends 'MYMainBundle::leftColLayout.html.twig' %}
+
+{# meta information #}
+{#% block title %}{{'make_suggestion.title'|trans}} | mYerevan{% endblock %}
+{% block description %}{{'make_suggestion.description'|trans}}{% endblock %}
+{% block keywords %}{{'make_suggestion.keywords'|trans}}{% endblock %#}
+
+{# css #}
+{% block stylesheets %}
+  {{parent()}}
+  {% stylesheets output='css/list.css'
+      'bundles/mymain/css/list.css' 
+      filter='less,cssrewrite,yui_css' %}
+   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+         
+{# main content #}
+{% block rightContent %}
+   <br />
+   <h2 class="confirmed" align="center">{{'suggestion_done'|trans|raw}}</h2>
+{% endblock%}

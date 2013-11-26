@@ -1,0 +1,173 @@
+{# MYMainBundle:Suggestion:show #}
+{% extends 'MYMainBundle::leftColLayout.html.twig' %}
+
+{# meta information #}
+{#% block title %}{{object.metaTitle}} | mYerevan{% endblock %}
+{% block description %}{{object.metaDesc}}{% endblock %}
+{% block keywords %}{{object.metaKw}}{% endblock %#}
+
+{# css #}
+{% block stylesheets %}
+  {{parent()}}
+  {% stylesheets output='css/suggestion.css'
+      'bundles/mymain/css/list.css' 
+      'bundles/mymain/css/suggestion.css' 
+      filter='less,cssrewrite,yui_css' %}
+   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+         
+{# main content #}
+{% block rightContent %}
+  {# list all projects #}
+  <div class="list-block">
+    <div class="list-title">
+      <span class="list-title-text">
+          {% if object.titleList is not empty%}
+            {{object.titleList}}
+          {% else %}
+            {{object.title}}
+          {% endif %}
+      </span>
+      <span class="list-title-date">{{object.createdAt|date("d.m.Y")}}</span>
+    </div>
+
+    {# shows image#}
+    {% set show_iamge = object.image is not empty %}          
+
+    {% if show_iamge %}
+      <div class="list-thumb">
+        {# show thumbnail #}
+        {% thumbnail object.image, 'list'with{'title': object.title} %}
+      </div>
+    {% else %}
+        <div class="list-thumb-{{app.request.attributes.get('_locale')}}">
+        </div>
+    {% endif %}
+
+    <div class="list-text">
+
+        {# check facebook account #}
+        {% if object.user is not empty%}
+
+          {# show picture #}
+          {% if object.user.facebookUid is not empty%}
+            <img src="http://graph.facebook.com/{{- object.user.facebookUid -}}/picture?type=square" alt="fb image" />
+          {% endif %}
+
+          {# show name #}
+          
+          {% if object.user.facebookUid is not empty %}
+            <span class="title">
+              <a href="http://www.facebook.com/{{object.user.facebookUid}}" target="_blank">
+                {{object.user.firstname}} {{object.user.lastname}}
+              </a>
+            </span>
+            <br />
+          {% else %}
+            {% if object.user.firstname is not empty %}
+              <span class="title">
+                {{object.user.firstname|length}} {{object.user.lastname|length}}
+              </span>
+              <br />
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+       {# <span>{{'common.suggests'|trans}}</span> #}
+        <div>{{object.suggestion|raw}}</div>
+        <br />
+        <div>{{object.solution|raw}}</div>
+    </div>
+    <br class="fcb" />
+  </div>
+  
+  {# show form #}
+      {% if object.showContact == '1' %}
+   <h2>{{'suggestion_title'|trans}}</h2>
+   <div id="sug-form-holder">
+    {{ form_javascript(form) }}
+       
+    <form action="{{path('offer', {'slug': object.slug})}}" method="post" {{ form_enctype(form) }}>
+       {{ form_errors(form) }}
+
+        
+       <label for="contact_name" class="required">{{'suggestion_name'|trans}}</label> 
+       {{ form_widget(form.name) }}
+       
+       <label for="contact_email" class="required">{{'suggestion_email'|trans}}</label> 
+       {{ form_widget(form.email) }}
+       
+       <label for="contact_phone" class="required">{{'suggestion_phone'|trans}}</label> 
+       {{ form_widget(form.phone) }}
+       
+       <label for="contact_address" class="required">{{'suggestion_address'|trans}}</label> 
+       {{ form_widget(form.address) }}
+       
+       <label for="contact_note" class="required">{{'suggestion_note'|trans}}</label> 
+       {{ form_widget(form.note) }}
+       
+       <label for="contact_file" class="required">{{'suggestion_file'|trans}}</label> 
+       {{ form_widget(form.file) }}
+       
+       <br />
+       {{'suggestion_info'|trans}}
+       <br />
+       <br />
+       
+       {{ form_widget(form.recaptcha) }}
+
+       {{ form_rest(form) }}
+
+       <input class="button-glossy medium-grey" type="submit" value="{{ 'homepage.send'|trans }}" />
+   </form>
+  </div>
+   {% endif %}
+   
+    {# show application form #}
+     {% if object.showApplication == '1' %}
+   <h2>{{'suggestion_title'|trans}}</h2>
+   <div id="sug-form-holder">
+    {{ form_javascript(appform) }}
+       
+    <form action="{{path('offerapp', {'slug': object.slug})}}" method="post" {{ form_enctype(appform) }}>
+       {{ form_errors(appform) }}
+
+        
+       <label for="contact_name" class="required">{{'suggestion_name'|trans}}</label> 
+       {{ form_widget(appform.name) }}
+       
+       <label for="contact_email" class="required">{{'suggestion_email'|trans}}</label> 
+       {{ form_widget(appform.email) }}
+       
+       <label for="contact_phone" class="required">{{'suggestion_phone'|trans}}</label> 
+       {{ form_widget(appform.phone) }}
+       
+       <label for="contact_note" class="required">{{'suggestion_note'|trans}}</label> 
+       {{ form_widget(appform.note) }}
+       
+       <label for="contact_file" class="required">{{'suggestion_file'|trans}}</label> 
+       {{ form_widget(appform.file) }}
+       
+       <br />
+       {{'appform.info'|trans}}
+       <br />
+       <br />
+       
+       {{ form_widget(appform.recaptcha) }}
+
+       {{ form_rest(appform) }}
+
+       <input class="button-glossy medium-grey" type="submit" value="{{ 'homepage.send'|trans }}" />
+   </form>
+  </div>
+   {% endif %}
+   
+  {# socials #}
+  {% include 'MYMainBundle::social.html.twig' with{'cpath': path('discussion', {'slug': object.slug, '_locale': 'am'}), 'title': object.title}%}
+{% endblock%}
+   
+{# put og properties #}
+{% block meta %}
+   {% include 'MYMainBundle::socialMeta.html.twig' with{'cpath': path('discussion', {'slug': object.slug, '_locale': 'am'}), 'title': object.title, 'description': object.intro, 'image': object.image}%}
+{% endblock %}

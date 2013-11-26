@@ -1,0 +1,5 @@
+{% if admin.hasRoute('reply') %}
+    <a href="{{ admin.generateObjectUrl('reply', object) }}" class="btn edit_link" title="Reply">
+        <i>Reply</i>
+    </a>
+{% endif %}

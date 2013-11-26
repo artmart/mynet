@@ -1,0 +1,44 @@
+{% extends 'MYMainBundle::leftColLayout.html.twig' %}
+
+{# css #}
+{% block stylesheets %}
+  {{parent()}}
+  {% stylesheets output='css/suggestion.css'
+      'bundles/mymain/css/list.css' 
+      'bundles/mymain/css/suggestion.css' 
+      filter='less,cssrewrite,yui_css' %}
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+
+{#% block title %}{{'feedback.title'|trans}} | MYnet{% endblock %}
+{% block description %}{{'feedback.description'|trans}}{% endblock %}
+{% block keywords %}{{'feedback.keywords'|trans}}{% endblock %#}
+
+{% block rightContent %}
+<br />
+<h2 class="for_centering">{{ 'contact.text'|trans }}</h2>
+<br />
+<p class="contact_error">{{ 'contact_error'|trans }}</p>
+<br />
+<div id="sug-form-holder">
+    {{ form_javascript(form2) }}
+        <form action="{{ path('contact_form') }}" method="POST" id="contact_form">
+        {{ form_errors(form2) }}
+        <label for="contactform_subject" class="required">{{'contact.form.subject'|trans}}</label> 
+        {{ form_widget(form2.subject) }}
+         <label for="contactform_email" class="required">{{'suggestion_email'|trans}}</label> 
+        {{ form_widget(form2.email) }}
+         <label for="contactform_message" class="required">{{'contact.form.message'|trans}}</label>        
+        {{ form_widget(form2.message) }}
+
+                <br />
+             {{ form_widget(form2.recaptcha) }}
+
+        {{ form_rest(form2) }}
+                <br />
+<input class="button-glossy medium-grey" type="submit" value="{{ 'homepage.send'|trans }}" />
+            </form>
+        </div>
+
+{% endblock %}

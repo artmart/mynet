@@ -1,0 +1,11 @@
+<div id="left-sidebar" class="sidebar-menu">
+	{% if (page is not defined) and (app.request.get('_route') != 'my_gallery') %}
+    {{ knp_menu_render('MYMainBundle:Builder:leftMenu', { 'currentAsLink': false}) }}
+        {% elseif (page is not defined) and (app.request.get('_route') == 'my_gallery') %}
+    {% set main_menu = knp_menu_get( 'MYMainBundle:Builder:leftMenu' , [], {'page': 'gallery'}) %}
+	{{ knp_menu_render(main_menu, { 'currentAsLink': false}) }}
+        {% else %}
+    {% set main_menu = knp_menu_get( 'MYMainBundle:Builder:leftMenu' , [], {'page': page}) %}
+	{{ knp_menu_render(main_menu, { 'currentAsLink': false}) }}
+	{% endif %}
+  </div>

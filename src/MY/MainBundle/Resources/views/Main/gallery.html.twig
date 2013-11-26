@@ -1,0 +1,27 @@
+{# page #}
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+{%- block title -%}{{parent()}} | Gallery{%- endblock -%}
+{%- block keywords -%}{{'gallery.keywords'|trans}}{%- endblock -%}
+{%- block description -%}{{'gallery.description'|trans}}{%- endblock -%}
+
+{%block main%}
+{% if type == 'photos' %}
+<h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{'menutop.gallery'|trans}}</h2>
+{% endif %}
+{% if type == 'videos' %}
+<h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{'menutop.videos'|trans}}</h2>
+{% endif %}
+<ul class="galleryList">
+  {%for gallery in galleries %}
+    <li>
+      <a href="{{ path('my_gallery_more', {'type':type, 'slug':gallery.slug}) }}">
+         {% if gallery.image %}
+          <img src="{% path gallery.image, 'list' %}" class="gallery_pics" alt="{{gallery.title}}" />
+         {% endif %}
+          <span>{{gallery.title}}</span>
+        </a>
+      </li>
+  {% endfor %}
+    </ul>
+</div>
+{% endblock %}

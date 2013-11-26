@@ -1,0 +1,159 @@
+{# page #}
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+
+{% block stylesheets %}
+  {{parent()}}
+  {% javascripts output='css/main.css'
+          '@MYMainBundle/Resources/public/css/style.css'
+      filter='cssrewrite,yui_css' %}
+  <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+  {% endjavascripts %}
+{% endblock %}
+
+{%- block title -%}
+  {% for page in info %}
+    MYYerevan | {{page.title}}
+  {% endfor %}
+{%- endblock -%}
+
+{%- block keywords -%}
+  {% for page in info %}
+    {{page.metaKw}}
+  {% endfor %}
+{%- endblock -%}
+
+{%- block description -%}
+  {% for page in info %}
+    {{page.metaDesc}}
+  {% endfor %}
+{%- endblock -%}
+    
+{% block meta %}
+    {% for id,page in info %}
+      <meta property="og:title" content="{{page.title}}" /> 
+      <meta property="og:description" content="{{page.contentShort|raw}}" />  
+      <meta property="og:image" content="{% if (page.contentImage is defined) and (page.contentImage is not null) %}http://www.myyerevan.am{% path page.contentImage, 'list' %}{% endif %}" />  
+    {% endfor %}
+{% endblock %}
+
+{%block main%}
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="category">
+  {% for id,page in info %}
+  <div class="item-detailed clearfix">
+    <div class="event_title">
+       <h2 class="event-title-{{app.request.attributes.get('_locale')}}">
+	 {{page.title}}
+       </h2>
+       <p class="event_type">{% if page.eventCatId %}{{page.eventCatId.name}}{% endif %}</p>
+    </div>
+    <div class="middle">
+      <div class="middle_img">
+      {% if (page.contentImage is defined) and (page.contentImage is not null) %}
+        <img src="{% path page.contentImage, 'list' %}" class="event_list" alt="{{page.title}}" />
+      {% endif %}
+      </div>
+      <div class="middle_info">
+      {% if (page.endDate is not null) or ((page.endDateTwo is not null) and (page.endTwoStatus == '1')) or ((page.endDateThree is not null) and (page.endThreeStatus == '1')) %}
+        <div class="date">
+          <div class="middle_info_img_date middle_info_img"></div>
+          <div class="middle_content">
+            <div class="middle_content_c middle_content_short">
+              <span>
+              {% if (page.endDate) %}
+                {{ page.endDate|date('d/m/Y') }}
+              {% endif %}
+              {% if (page.endDateTwo) and (page.endTwoStatus == '1') %}
+                {{ page.endDateTwo|date('d/m/Y') }}
+              {% endif %}
+              {% if (page.endDateThree) and (page.endThreeStatus == '1') %}
+                {{ page.endDateThree|date('d/m/Y') }}
+              {% endif %}
+              </span>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% if ((page.timeOne is not null) and (page.timeOneStatus == '1')) or ((page.timeTwo is not null) and (page.timeTwoStatus == '1')) or ((page.timeThree is not null) and (page.timeThreeStatus == '1')) %}
+        <div class="time">
+          <div class="middle_info_img_time middle_info_img"></div>
+          <div class="middle_content">
+            <div class="middle_content_c middle_content_short">
+              <span>
+              {% if (page.timeOne) and (page.timeOneStatus == '1') %}
+                {{ page.timeOne }}
+              {% endif %}
+              {% if (page.timeTwo) and (page.timeTwoStatus == '1') %}
+                {{ page.timeTwo }}
+              {% endif %}
+              {% if (page.timeThree) and (page.timeThreeStatus == '1') %}
+                {{ page.timeThree }}
+              {% endif %}
+                </span>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% if page.eventPlaceId %}
+        <div class="info">
+          <div class="middle_info_img_info middle_info_img"></div>
+          <div class="middle_content">
+            <div class="middle_content_c">
+              <span>{{page.eventPlaceId.name}}</span>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% if page.eventPlaceId %}
+        <div class="place">
+          <div class="middle_info_img_place middle_info_img"></div>
+          <div class="middle_content">
+            <div class="middle_content_c">
+              <span>{{page.eventPlaceId.address|raw}}</span>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+        <div class="price">
+          <div class="middle_info_img_price middle_info_img"></div>
+          <div class="middle_content">
+            <div class="middle_content_c">
+              <span>{{ page.tCostsStart }} - {{ page.tCostsEnd }} {{ 'dram'|trans }}</span>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <div class="text_about">{{page.content|raw}}</div>
+  {% endfor %}
+      <div class="share_this">
+        <div class="addthis_toolbox addthis_default_style addthis_left">
+          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+        </div>
+        <div class="addthis_toolbox addthis_default_style addthis_right">
+          <a class="addthis_button_preferred_1"></a>
+          <a class="addthis_button_preferred_2"></a>
+          <a class="addthis_button_preferred_3"></a>
+          <a class="addthis_button_preferred_4"></a>
+          <a class="addthis_button_compact"></a>
+          <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5101043a5b9a805e"></script>
+      </div>
+      <div class="fb_comments">
+          
+        <div class="fb-comments" data-href="http://www.myyerevan.am{{ path('my_event_detailed', {'category_slug': category_slug, 'event_slug': event_slug, '_locale': 'am'}) }}" data-width="690" data-num-posts="10"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

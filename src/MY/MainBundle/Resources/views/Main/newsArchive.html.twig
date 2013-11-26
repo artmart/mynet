@@ -1,0 +1,36 @@
+{# page #}
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+
+{%- block title -%}{{parent()}} | News Archive{%- endblock -%}
+{%- block keywords -%}{{'news.keywords'|trans}}{%- endblock -%}
+{%- block description -%}{{'news.description'|trans}}{%- endblock -%}
+
+{%block main%}
+<h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{'menuleftnews.narchive'|trans}}</h2>
+<div class="category">
+    {% for id,page in pagination %}
+      {% if (page.image is defined) and (page.image is not null) %}
+          {% set ext = page.image.contentType|split('/') %}
+      {% endif %}	
+
+    <div class="item-row clearfix">
+      <a href="{{path('my_news_detailed', {'slug': page.slug})}}" class="read-more">
+        {% if (page.image is defined) and (page.image is not null) %}
+          <img src="/uploads/media/{{page.image.context}}/0001/01/thumb_{{page.image.id}}_{{page.image.context}}_list.{{ext[1]}}" />
+        {% endif %}		
+      </a>
+      <h4>{{ page.created|date('Y-m-d G:i') }}</h4><br />
+      <h3 class="item-title">
+         <a href="{{path('my_news_detailed', {'slug': page.slug})}}">{{page.title}}</a>
+      </h3>
+
+      <div class="intro">{{page.shortContent|raw}}</div>
+        <a href="{{path('my_news_detailed', {'slug': page.slug})}}" class="read-more">{{'more'|trans}}</a>
+    </div>
+      {% endfor %}
+      {# navigation #}
+      <div>
+        {{ pagination.render()|raw }}
+      </div>
+</div>
+{% endblock %}

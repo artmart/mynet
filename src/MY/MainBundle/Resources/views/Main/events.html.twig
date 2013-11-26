@@ -1,0 +1,47 @@
+{# events #}
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+
+{%- block title -%}{{parent()}} | Events{%- endblock -%}
+{%- block keywords -%}{{'events.keywords'|trans}}{%- endblock -%}
+{%- block description -%}{{'events.description'|trans}}{%- endblock -%}
+
+{%block main%}
+<div class="category">
+  <h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{'menutop.events'|trans}}</h2>
+  {% for event in pagination %}
+    <div class="item-row-a clearfix">
+      <h3 class="title1">
+        <a href="{{path('my_event_detailed', {'category_slug': event.eventCatId.slug,'event_slug': event.slug})}}">{{event.title}}</a>
+      </h3>
+        <p class="title2">{% if event.eventCatId %}{{event.eventCatId.name}}{% endif %}</p>
+      <a href="{{path('my_event_detailed', {'category_slug': event.eventCatId.slug,'event_slug': event.slug})}}" class="read-more">
+        {% if (event.image is defined) and (event.image is not null) %}
+          <img src="{% path event.image, 'list' %}" class="event_img" alt="{{event.title}}" />
+	{% endif %}
+        {% if event.new == '1' %}
+         <div class="new_img">
+           <img src="/bundles/mymain/images/new-{{app.request.attributes.get('_locale')}}.png" alt="new" />
+         </div>
+        {% endif %}
+      </a>
+      <div class="each_event_text_title">{{ event.startDate|date('d/m/Y') }}</div>
+      <div class="each_event_text_title">{{ event.startDate|date('H:i') }}</div>
+      {% if event.eventPlaceId %}
+        <div class="each_event_text_title">
+          <div class="middle_info_img_info middle_info_img"></div>
+          <div class="middle_content">
+            <div class="middle_content_c">
+              <p>{{event.eventPlaceId.name}}</p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      <br />
+      <div class="intro"> {{event.contentShort|raw}} <a href="{{path('my_event_detailed', {'category_slug': event.eventCatId.slug,'event_slug': event.slug})}}" class="read-more">{{'more'|trans}}</a></div>
+    </div>
+   {% endfor %}
+    
+   <div>{{ pagination.render()|raw }}</div>
+  </div>
+</div>
+{% endblock %}

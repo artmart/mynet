@@ -1,0 +1,36 @@
+{% include 'MYUserBundle:Facebook:js.html.twig'%}
+
+<div class="signup-simple">
+  <div id="signInBox" class="clearfix">
+    <div class="fb-login-section">
+      <h1>{{'login_form_title'|trans}}</h1>
+      <div class="fb-button-container-centered">
+        <a href="#" onclick="fb_login();" class="fb-button">
+          <span class="fb-button-left"></span>
+          <span class="fb-button-center">{{'login_facebook_title'|trans|raw}}</span>
+          <span class="fb-button-right"></span>
+        </a>
+      </div>
+      <h3 class="or-separator signpainter">{{ 'login_or'|trans }}</h3>
+    </div>
+
+    <form accept-charset="UTF-8" action="{{ path("fos_user_security_check") }}" class="signin-form" data-action="Signin" method="post">
+      <div class="textInput" id="inputEmail">
+        <input type="text" name="_username" value="" tabindex="1" id="signin_email" placeholder="{{'register_email'|trans}}">
+      </div>
+      <div class="textInput" id="inputPassword">
+        <input type="password" name="_password" tabindex="2" id="signin_password" placeholder="{{'register_password'|trans}}">
+      </div>
+      <div class="formActions clearfix">
+        <input type="submit" id="bSignIn" class="button-glossy medium-grey" value="{{'login_btn'|trans}}">
+        <label for="remember_me2">
+          <input type="checkbox" name="_remember_me" id="remember_me2" value="true" class="remember_me" />
+          <span>{{ 'login_remember_me'|trans }}</span></label>
+        <div class="extra-actions clearfix">
+          <a href="{{path('fos_user_resetting_request')}}" class="forgotPassword">{{ 'forgot_password'|trans({}) }}</a> <span class="dot">·</span>
+          <a href="{{path('fos_user_registration_register')}}">{{ 'need_an_account'|trans({}) }}</a>
+        </div>
+      </div>
+    </form>					
+  </div>
+</div>

@@ -1,0 +1,45 @@
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+
+{# css #}
+{% block stylesheets %}
+  {{parent()}}
+  {% stylesheets output='css/suggestion.css'
+      'bundles/mymain/css/list.css' 
+      'bundles/mymain/css/suggestion.css' 
+      filter='cssrewrite,yui_css' %}
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+
+{#% block title %}{{'feedback.title'|trans}} | mYerevan{% endblock %}
+{% block description %}{{'feedback.description'|trans}}{% endblock %}
+{% block keywords %}{{'feedback.keywords'|trans}}{% endblock %#}
+
+{% block main %}
+<br />
+<h2 class="for_centering">{{ 'contact.text'|trans }}</h2>
+<br />
+<div id="sug-form-holder">
+    {{ form_javascript(form2) }}
+        <form action="{{ path('contact_form') }}" method="POST" id="contact_form">
+        {{ form_errors(form2) }}
+        <label for="contactform_subject" class="required">{{'contact.form.subject'|trans}}</label> 
+        {{ form_widget(form2.subject) }}
+         <label for="contactform_email" class="required">{{'contact.form.email'|trans}}</label> 
+        {{ form_widget(form2.email) }}
+         <label for="contactform_message" class="required">{{'contact.form.message'|trans}}</label>        
+        {{ form_widget(form2.message) }}
+
+                <br />
+             {{ form_widget(form2.recaptcha) }}
+
+        {{ form_rest(form2) }}
+                <br />
+<input class="button-glossy medium-grey" type="submit" value="{{ 'contact.form.send'|trans }}" />
+            </form>
+        </div>
+
+{% endblock %}
+{%block rightmenu%}   
+{% include 'MYMainBundle:Main:rightmenu.html.twig' %}
+{% endblock %}

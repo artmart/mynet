@@ -1,0 +1,64 @@
+{# page #}
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+{% block stylesheets %}
+  {{parent()}}
+  {% stylesheets output='css/list.css'
+      'bundles/mymain/css/prettyPhoto.css' 
+      filter='cssrewrite,yui_css' %}
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+  {{parent()}}
+  {% javascripts output='js/slideandlight.js' 
+    '@MYMainBundle/Resources/public/javascript/jquery.prettyPhoto.js'
+    '@MYMainBundle/Resources/public/javascript/prettyphoto_on.js'
+    filter='yui_js' %}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+  {% endjavascripts %}
+     {#     
+    <script type="text/javascript">
+    $(function() {
+        $('.sonata-media-gallery-media-item a').lightBox({
+            maxHeight: 500,
+            maxWidth: 500      
+        });
+    });
+    </script>
+#}
+{% endblock %}
+
+{%- block title -%}MYYerevan | Gallery{%- endblock -%}
+{%- block keywords -%}{{'gallery.keywords'|trans}}{%- endblock -%}
+{%- block description -%}{{'gallery.description'|trans}}{%- endblock -%}
+
+{%block main%}
+
+<h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{info.title}}</h2>
+{% if info.gallery is defined %}
+  {% if info.type == '2' %}
+    <div class="sonata-media-gallery-media-list">
+    {% if info.gallery is not null %}
+      {% for i,galleryHasMedia in info.gallery.galleryHasMedias %}
+          <div class="sonata-media-gallery-media-item">
+          {{ galleryHasMedia.media.providerMetadata['html']| raw }}
+              </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+  {% else %}
+  <div class="sonata-media-gallery-media-list">
+    {% for i,galleryHasMedia in info.gallery.galleryHasMedias %}
+      <div class="sonata-media-gallery-media-item">
+	<a class="sonata-media-gallery-media-item-link" rel="prettyPhoto[gallery2]" href="{% path galleryHasMedia.media, 'reference' %}">
+	   {% thumbnail galleryHasMedia.media, 'list' with{'title': info.title, 'alt': info.title,}%}
+        </a>
+        </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+{% endif %}
+</div>
+
+{% endblock %}

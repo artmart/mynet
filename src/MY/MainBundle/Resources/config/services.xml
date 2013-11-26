@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+  <parameters>
+    <parameter key="my.main.admin.slider">Slider</parameter>
+    <parameter key="my.main.admin.interestings">Interestings</parameter>
+    <parameter key="my.main.admin.concurs">Concurs</parameter>
+    <parameter key="my.main.admin.realty">Realty</parameter>
+    <parameter key="my.main.admin.ads">Ads</parameter>
+  </parameters> 
+     
+  <services>
+    <service id="twig.extension.my.main" class="MY\MainBundle\Twig\Extension\PageRouteExtension" public="false">
+      <tag name="twig.extension" />
+      <argument type="service" id="service_container"></argument>
+    </service>
+          
+    <!-- interestings -->
+    <service id="my.main.admin.interestings" class="MY\MainBundle\Admin\InterestingsAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="%my.main.admin.interestings%" label="Interestings"/>
+      <argument/>
+      <argument>MY\MainBundle\Entity\Interestings</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="edit">MYMainBundle:Admin:edit_i18n.html.twig</argument>
+          <argument key="show">SonataAdminBundle:CRUD:show.html.twig</argument>
+        </argument>
+      </call>
+    </service>
+        
+    <!-- horoscop -->
+    <service id="my.main.admin.horoscop" class="MY\MainBundle\Admin\HoroscopAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="%my.main.admin.interestings%" label="Horoscop"/>
+      <argument/>
+      <argument>MY\MainBundle\Entity\Horoscop</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="edit">MYMainBundle:Admin:edit_i18n.html.twig</argument>
+          <argument key="show">SonataAdminBundle:CRUD:show.html.twig</argument>
+        </argument>
+      </call>
+    </service>
+    
+    <!-- Concurs -->
+    <service id="my.main.admin.concurs" class="MY\MainBundle\Admin\ConcursAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="%my.main.admin.concurs%" label="Concurs"/>
+      <argument/>
+      <argument>MY\MainBundle\Entity\Concurs</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="edit">MYMainBundle:Admin:edit_i18n.html.twig</argument>
+          <argument key="show">SonataAdminBundle:CRUD:show.html.twig</argument>
+        </argument>
+      </call>
+    </service>
+    
+    <!-- realty -->
+    <service id="my.main.admin.realty" class="MY\MainBundle\Admin\RealtyAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="%my.main.admin.realty%" label="Realty"/>
+      <argument/>
+      <argument>MY\MainBundle\Entity\Realty</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="edit">MYMainBundle:Admin:edit_i18n.html.twig</argument>
+          <argument key="show">SonataAdminBundle:CRUD:show.html.twig</argument>
+        </argument>
+      </call>
+    </service>
+    
+    <!-- news -->
+    <service id="my.main.admin.news" class="MY\MainBundle\Admin\NewsAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Site Blocks" label="News"/>
+      <argument/>
+      <argument>MY\MainBundle\Entity\News</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="edit">MYMainBundle:Admin:edit_i18n.html.twig</argument>
+          <argument key="show">SonataAdminBundle:CRUD:show.html.twig</argument>
+        </argument>
+      </call>
+    </service>
+
+    <!-- gallery -->
+    <service id="my.main.admin.gallery" class="MY\MainBundle\Admin\GalleryAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Site Blocks" label="Gallery"/>
+      <argument/>
+      <argument>MY\MainBundle\Entity\Gallery</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="edit">MYMainBundle:Admin:edit_i18n.html.twig</argument>
+          <argument key="show">SonataAdminBundle:CRUD:show.html.twig</argument>
+        </argument>
+      </call>
+    </service>
+    
+    
+    <!-- ads 
+    <service id="my.ads.admin.ads" class="MY\AdsBundle\Admin\AdsAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Site Blocks" label="Ads"/>
+      <argument/>
+      <argument>MY\AdsBundle\Entity\Ads</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+    </service>
+-->
+
+<service id="my.main.admin.ads" class="MY\MainBundle\Admin\AdsAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="%my.main.admin.ads%" label="Ads"/>
+      <argument/>
+      <argument>MY\MainBundle\Entity\Ads</argument>
+      <argument>NULL</argument>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="edit">MYMainBundle:Admin:edit_i18n.html.twig</argument>
+        </argument>
+      </call>
+    </service>    
+    
+
+<!-- slider -->   
+    <service id="my.main.admin.slider" class="MY\MainBundle\Admin\SliderAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="%my.main.admin.slider%" label="Slider"/>
+      <argument/>
+      <argument>MY\MainBundle\Entity\Slider</argument>
+      <argument>NULL</argument>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="edit">MYMainBundle:Admin:edit_i18n.html.twig</argument>
+        </argument>
+      </call>
+    </service>    
+
+        
+  </services>
+</container>

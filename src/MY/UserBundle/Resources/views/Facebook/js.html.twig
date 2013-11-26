@@ -1,0 +1,59 @@
+{% block javascripts %}
+  {% javascripts output='js/lb.js' 
+    '@MYMainBundle/Resources/public/javascript/lightbox_me.js' 
+    filter='yui_js' %}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+  {% endjavascripts %}
+{% endblock %}
+
+{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
+
+<div id="dvLoading" style="display:none;"></div>
+
+<script>
+  function goLogIn(){
+      window.location = "{{ path('_security_check') }}";
+   }
+
+function fb_login(){
+    FB.login(function(response) {
+
+        if (response.authResponse) {
+            console.log('Welcome!  Fetching your information.... ');
+            //console.log(response); // dump complete info
+            access_token = response.authResponse.accessToken; //get access token
+            user_id = response.authResponse.userID; //get FB UID
+
+            FB.api('/me', function(response) {
+                user_email = response.email; //get user email
+          // you can store this data into your database             
+            });
+            
+            $('#dvLoading').lightbox_me({ centered: true, });
+            
+      $(window).load(function () {
+        $('#dvLoading').trigger('close');
+      });
+
+        } else {
+            //user hit cancel button
+            console.log('User cancelled login or did not fully authorize.');
+
+        }
+    }, {
+        scope: 'email'
+    });
+}
+
+  function onFbInit() {
+      if (typeof(FB) != 'undefined' && FB != null ) {
+          FB.Event.subscribe('auth.statusChange', function(response) {
+              if (response.session || response.authResponse) {
+                  setTimeout(goLogIn, 500);
+              } else {
+                  window.location = "{{ path('_security_logout') }}";
+              }
+          });
+      }
+  }
+  </script>

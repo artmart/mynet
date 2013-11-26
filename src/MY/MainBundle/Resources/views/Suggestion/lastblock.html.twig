@@ -1,0 +1,67 @@
+<div class="last-item-block">
+  {# shows image#}
+  {% set show_iamge = suggestion.image is not empty %}          
+{#
+  {% if show_iamge %}
+    <div class="thumb">
+      {% thumbnail suggestion.image, 'list' with{'alt': 'picture', 'title': suggestion.title} %}
+      </div>
+  {% endif %}
+#}
+      <div class="lsuggestion">
+      {# check facebook account #}
+      {% if suggestion.user is not empty%}
+
+        {# show picture #}
+          <div class="header">
+              <div>
+          {% if suggestion.user.facebookUid is not empty%}
+                <a href="http://www.facebook.com/{{suggestion.user.facebookUid}}" target="_blank">
+                  <img src="http://graph.facebook.com/{{- suggestion.user.facebookUid -}}/picture?type=square" alt="{{suggestion.user.firstname}} {{suggestion.user.lastname}}" />
+                </a>
+          {% else %}
+                  <img src="/bundles/mymain/images/noimage.jpg" alt="no image" width="50" height="50" />
+          {% endif %}
+              </div>
+          {# show name #}
+              <div id="fb_details">
+                <span class="date">{{suggestion.createdAt|date("d.m.Y")}}</span> <br/>
+                <span class="title">
+              {# display facebook user #}
+              {% if suggestion.user.facebookUid is not empty %}
+                    <a href="http://www.facebook.com/{{suggestion.user.facebookUid}}" target="_blank">
+                  {{suggestion.user.firstname}} {{suggestion.user.lastname}}
+                      </a>
+              {% else %}
+                {{suggestion.user.firstname}} {{suggestion.user.lastname}}
+              {% endif %}
+                    </span>
+                    <br />
+                    <span>{{'common.suggests'|trans}}</span><br />
+                  </div>
+                  <br class="fcl" />
+                </div>
+      {% endif %}
+
+      {# facebook url #}
+      {% set facebook_url = facebook_server_url ~ path('suggestion', {'slug': suggestion.slug, '_locale': 'am'}) %}
+
+                <br />
+      {# like button #}
+
+              </div>    
+              <br class="fcl" />
+
+
+              <div id="l_title">
+                <a href="{{path('suggestion', {'slug': suggestion.slug})}}">{{suggestion.title}}</a>  
+              </div>
+
+              <div id="sintro">
+        {{suggestion.intro|raw}}
+                  <a href="{{path('suggestion', {'slug': suggestion.slug})}}">{{'common.more'|trans}}</a>
+                </div>
+
+                <div class="fb-like" data-href="{{facebook_url}}" data-send="false" data-layout="button_count" data-width="75" data-show-faces="true"></div>
+
+              </div>

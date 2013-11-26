@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="" >
+        <body>
+            <!-- login -->
+            <trans-unit id="login_facebook_title">
+                <source>login_facebook_title</source>
+                <target><![CDATA[<strong>Մուտք գործել</strong> <strong>Facebook</strong> -ով]]></target>
+            </trans-unit>
+            
+            <trans-unit id="login_form_title">
+                <source>login_form_title</source>
+                <target>Մուտք գործել MyNet</target>
+            </trans-unit>
+            
+            <trans-unit id="login_btn">
+                <source>login_btn</source>
+                <target>Մուտք գործել</target>
+            </trans-unit>
+            
+            <trans-unit id="login_remember_me">
+                <source>login_remember_me</source>
+                <target>Հիշել ինձ հաջորդ անգամ </target>
+            </trans-unit>
+            <trans-unit id="login_or">
+                <source>login_or</source>
+                <target>կամ</target>
+            </trans-unit>
+            <trans-unit id="forgot_password">
+                <source>forgot_password</source>
+                <target>Մոռացե՞լ եք Ձեր գաղտնաբառը</target>
+            </trans-unit>
+            <trans-unit id="need_an_account">
+                <source>need_an_account</source>
+                <target>Ստեղծե՞լ հաշիվ</target>
+            </trans-unit>
+            
+            <!-- reset -->
+            <trans-unit id="reset_form_title">
+                <source>reset_form_title</source>
+                <target>Վերականգնել գաղտնաբառը</target>
+            </trans-unit>
+            <trans-unit id="resetting.request.submit">
+                <source>resetting.request.submit</source>
+                <target>Վերականգնել գաղտնաբառը</target>
+            </trans-unit>
+            <trans-unit id="reset_request_username">
+                <source>reset_request_username</source>
+                <target>Գաղտնանուն կամ էլ. փոստ</target>
+            </trans-unit>
+            
+            <!-- registration -->
+            <trans-unit id="registration_form_header_message">
+                <source>registration_form_header_message</source>
+                <target>* Առանց Ձեր թույլատվության ոչինչ չի տեղադրվի:</target>
+            </trans-unit>
+            
+            <trans-unit id="register_username">
+                <source>register_username</source>
+                <target>Գաղտնանուն</target>
+            </trans-unit>
+            
+            <trans-unit id="register_firstname">
+                <source>register_firstname</source>
+                <target>Ձեր անունը</target>
+            </trans-unit>
+            
+            <trans-unit id="register_lastname">
+                <source>register_lastname</source>
+                <target>Ձեր ազգանունը</target>
+            </trans-unit>
+            
+            <trans-unit id="register_email">
+                <source>register_email</source>
+                <target>Ձեր էլ. փոստը</target>
+            </trans-unit>
+            
+            <trans-unit id="register_password">
+                <source>register_password</source>
+                <target>Գաղտնաբառ</target>
+            </trans-unit>
+            
+            <trans-unit id="register_password_confirm">
+                <source>register_password_confirm</source>
+                <target>Հաստատել գաղտնաբառը</target>
+            </trans-unit>
+            
+            <trans-unit id="register_create">
+                <source>register_create</source>
+                <target>Ստեղծել հաշիվ</target>
+            </trans-unit>
+            
+            <trans-unit id="register_already">
+                <source>register_already</source>
+                <target>Արդեն անդամագրվա՞ծ եք MyNet-ում:</target>
+            </trans-unit>
+            
+            <trans-unit id="register_login">
+                <source>register_login</source>
+                <target>Մուտք գործել</target>
+            </trans-unit>
+            
+            <trans-unit id="register_agree">
+                <source>register_agree</source>
+                <target>Ես համաձայն եմ MyNet կայքից օգտվելու պայմաններին:</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

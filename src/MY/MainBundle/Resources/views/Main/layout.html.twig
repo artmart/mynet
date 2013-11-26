@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="hy">
+  {% spaceless %}
+  <head>
+    <meta charset="utf-8"/> 
+    <meta name="keywords" content="{%- block keywords -%}{%- endblock -%}" />
+    <meta name="description" content="{%- block description -%}{%- endblock -%}"/>
+  {#  <meta property="fb:admins" content="100001565737680" />
+    <meta property="fb:app_id" content="308731369252494" /> #}
+    <title>{%- block title -%}{{'meta.title'|trans}}{%- endblock -%}</title>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+		{# inlcude js#}
+		{% block javascripts %}
+			{% javascripts output='js/jquery.js'
+			'@MYMainBundle/Resources/public/javascript/jquery/jquery.min.js'
+			'@MYMainBundle/Resources/public/plugins/fancybox/jquery.fancybox-1.3.4.js'
+			'@MYMainBundle/Resources/public/plugins/jcarousel/jquery.jcarousel.min.js'
+			'@MYMainBundle/Resources/public/javascript/jquery/jquery.prettyPhoto.js'
+			'@MYMainBundle/Resources/public/javascript/content.js'
+			'@MYMainBundle/Resources/public/javascript/gallery.js'
+			'@MYMainBundle/Resources/public/javascript/plugins.js'
+			'@MYMainBundle/Resources/public/javascript/ready.js'
+      '@MYMainBundle/Resources/public/javascript/sliderman.1.3.7.js'
+			'@MYMainBundle/Resources/public/javascript/messages.js'
+			'@MYMainBundle/Resources/public/javascript/widgets.js'
+			'@MYMainBundle/Resources/public/javascript/topcontroll.js'
+      '@MYMainBundle/Resources/public/javascript/AC_RunActiveContent.js'
+      '@MYMainBundle/Resources/public/javascript/lightbox_me.js' 
+			%}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+			{% endjavascripts %}
+		{% endblock %}		
+
+    {#
+'@MYMainBundle/Resources/public/javascript/slider.js'
+'@MYMainBundle/Resources/public/css/default.css'
+#}
+    
+    
+		{% block stylesheets %}
+			{% stylesheets output='css/main.css'
+			'@MYMainBundle/Resources/public/plugins/jcarousel/skins/events/skin.css'
+			'@MYMainBundle/Resources/public/plugins/jcarousel/skins/tango/skin.css'
+			'@MYMainBundle/Resources/public/css/prettyPhoto.css'
+			'@MYMainBundle/Resources/public/css/reset.css'
+			'@MYMainBundle/Resources/public/css/widgets.css'
+			'@MYMainBundle/Resources/public/css/main.css'
+      '@MYMainBundle/Resources/public/css/menu.css'
+      '@MYMainBundle/Resources/public/css/sliderman.css'			
+      '@MYMainBundle/Resources/public/plugins/fancybox/jquery.fancybox-1.3.4.css'
+			'@MYMainBundle/Resources/public/css/suggestion.css'
+      filter='cssrewrite,yui_css' %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+			{% endstylesheets %}
+		{% endblock %}
+
+   {% block meta %}{% endblock %}
+  </head>
+  <body>
+
+<div id="wrapper">
+      <div class="clearfix" id="header">
+         
+        <div id="top-bar">
+             <div class="login"><a href="{{ path('my_main_concurs_concurs') }}">{{'menutop.new'|trans}}</a></div> 
+         {% if app.request.attributes.get('_route') == 'my_homepage' %} 
+          <img src="/bundles/mymain/images/logo.jpg" class="logo_image" alt="MyNet.am" />
+				 {% else %}
+         <a href="{{path('homepage')}}">
+          <img src="/bundles/mymain/images/logo1.png" class="logo_image" alt="MyNet.am" />
+         </a>
+         {% endif %}
+        </div>
+       {#Top Menu#}      
+       <div id='cssmenu'>
+        {{ knp_menu_render('MYMainBundle:Builder:topMenu', {'currentAsLink': true}) }}    
+       </div>
+     </div>
+        
+
+<div id="container" class="clearfix">
+
+<div id="sidebar" class="clearfix">
+    <div class="sidebar-block">
+     <div id="left-sidebar" class="sidebar-menu">
+     {{ knp_menu_render('MYMainBundle:Builder:leftMenu1', {'currentAsLink': true}) }} 
+     </div>
+     <div id="left-sidebar" class="sidebar-menu">
+     {{ knp_menu_render('MYMainBundle:Builder:leftMenu2', {'currentAsLink': true}) }} 
+     </div> 
+{##### bunners ########}
+              
+{#% for ad in leftads %}
+<br />
+  {% if (ad.image is defined) and (ad.image is not null) %}
+       <a href="{{ad.link}}" target="_blank">
+         {% thumbnail ad.image, 'left' with{'alt': ad.title, 'title' : ad.title} %}
+       </a>
+  {%endif%}
+<br />
+{% endfor %#}   
+<br />           
+            
+            
+    </div>      
+</div>
+<div>
+{%block slider%}{% endblock%}
+ 
+<div id="content" class="clearfix">
+   {%block main%}{% endblock%}
+</div>
+{%block rightmenu%}{% endblock%}    
+{%block carucell%}{% endblock%}    
+{#% include 'MYMainBundle:Main:bottom.html.twig' %#}
+<div id="footer">
+
+  &COPY; 2013 - {{ "now"|date("Y") }} {{'texts.footertexts'|trans}}
+
+  <br><br>
+  <div id="circleBlock">
+    <!-- Circle.Am: DO NOT MODIFY THIS CODE: Start -->
+   
+  <!-- Circle.Am: End -->
+  
+</div>
+</div>
+</div>
+</div>  
+        
+</div>
+
+</body>
+{% endspaceless %}
+</html>

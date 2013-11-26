@@ -1,0 +1,113 @@
+{# MYMainBundle:Suggestion:show #}
+{% extends 'MYMainBundle::leftColLayout.html.twig' %}
+
+{# meta information #}
+{#% block title %}{{object.metaTitle}} | mYerevan{% endblock %}
+{% block description %}{{object.metaDesc}}{% endblock %}
+{% block keywords %}{{object.metaKw}}{% endblock %#}
+
+{# css #}
+{% block stylesheets %}
+  {{parent()}}
+  {% stylesheets output='css/suggestion.css'
+      'bundles/mymain/css/list.css' 
+      'bundles/mymain/css/suggestion.css' 
+      filter='less,cssrewrite,yui_css' %}
+   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+         
+{# main content #}
+{% block rightContent %}
+
+<br /><p class="contact_error">{{ 'contact_error'|trans }}</p><br />
+  
+  {# show form #}
+      {% if object.showContact == '1' %}
+   <h2>{{'suggestion_title'|trans}}</h2>
+   <div id="sug-form-holder">
+    {{ form_javascript(form) }}
+       
+    <form action="{{path('offer', {'slug': object.slug})}}" method="post" {{ form_enctype(form) }}>
+       {{ form_errors(form) }}
+
+        
+       <label for="contact_name" class="required">{{'suggestion_name'|trans}}</label> 
+       {{ form_widget(form.name) }}
+       
+       <label for="contact_email" class="required">{{'suggestion_email'|trans}}</label> 
+       {{ form_widget(form.email) }}
+       
+       <label for="contact_phone" class="required">{{'suggestion_phone'|trans}}</label> 
+       {{ form_widget(form.phone) }}
+       
+       <label for="contact_address" class="required">{{'suggestion_address'|trans}}</label> 
+       {{ form_widget(form.address) }}
+       
+       <label for="contact_note" class="required">{{'suggestion_note'|trans}}</label> 
+       {{ form_widget(form.note) }}
+       
+       <label for="contact_file" class="required">{{'suggestion_file'|trans}}</label> 
+       {{ form_widget(form.file) }}
+       
+       <br />
+       {{'suggestion_info'|trans}}
+       <br />
+       <br />
+       
+       {{ form_widget(form.recaptcha) }}
+
+       {{ form_rest(form) }}
+
+       <input class="button-glossy medium-grey" type="submit" value="{{ 'homepage.send'|trans }}" />
+   </form>
+  </div>
+   {% endif %}
+   
+    {# show application form #}
+     {% if object.showApplication == '1' %}
+   <h2>{{'suggestion_title'|trans}}</h2>
+   <div id="sug-form-holder">
+    {{ form_javascript(appform) }}
+       
+    <form action="{{path('offerapp', {'slug': object.slug})}}" method="post" {{ form_enctype(appform) }}>
+       {{ form_errors(appform) }}
+
+        
+       <label for="contact_name" class="required">{{'suggestion_name'|trans}}</label> 
+       {{ form_widget(appform.name) }}
+       
+       <label for="contact_email" class="required">{{'suggestion_email'|trans}}</label> 
+       {{ form_widget(appform.email) }}
+       
+       <label for="contact_phone" class="required">{{'suggestion_phone'|trans}}</label> 
+       {{ form_widget(appform.phone) }}
+       
+       <label for="contact_note" class="required">{{'suggestion_note'|trans}}</label> 
+       {{ form_widget(appform.note) }}
+       
+       <label for="contact_file" class="required">{{'suggestion_file'|trans}}</label> 
+       {{ form_widget(appform.file) }}
+       
+       <br />
+       {{'appform.info'|trans}}
+       <br />
+       <br />
+       
+       {{ form_widget(appform.recaptcha) }}
+
+       {{ form_rest(appform) }}
+
+       <input class="button-glossy medium-grey" type="submit" value="{{ 'homepage.send'|trans }}" />
+   </form>
+  </div>
+   {% endif %}
+   
+  {# socials #}
+  {% include 'MYMainBundle::social.html.twig' with{'cpath': path('discussion', {'slug': object.slug, '_locale': 'am'}), 'title': object.title}%}
+{% endblock%}
+   
+{# put og properties #}
+{% block meta %}
+   {% include 'MYMainBundle::socialMeta.html.twig' with{'cpath': path('discussion', {'slug': object.slug, '_locale': 'am'}), 'title': object.title, 'description': object.intro, 'image': object.image}%}
+{% endblock %}

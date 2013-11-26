@@ -1,0 +1,31 @@
+<form action="{{path('suggestion_make')}}" method="post" {{ form_enctype(form) }}>
+    {{ form_errors(form) }}
+        <div class="textInput" id="inputUsername">
+    {{ form_errors(form.title) }}
+    {{ form_widget(form.title, { 'attr': {'placeholder': 'homepage.form.title'|trans } }) }}
+            </div>
+            <div class="textInput" id="inputUsername">
+    {{ form_errors(form.suggestion) }}
+    {{ form_widget(form.suggestion, { 'attr': {'placeholder': 'homepage.form.suggestion'|trans } }) }}
+                </div>
+                <div class="textInput" id="inputUsername">
+    {{ form_errors(form.solution) }}
+    {{ form_widget(form.solution, { 'attr': {'placeholder': 'homepage.form.solution'|trans } }) }}
+                    </div>
+                    <div class="textInput" id="inputUsername">
+    {{ form_errors(form.file) }}
+    {{ form_widget(form.file) }}
+                        </div>
+
+                        <div class="checkInput">
+                            <input type="checkbox" id="on_map" name="on_map">
+                            <label for="on_map">{{'homepage.on_map'|trans}}</label>
+                            <br class="fcl">
+                        </div>
+
+    {{ form_rest(form) }}
+
+                        <div class="pad">
+                            <input type="submit" value="{{ 'homepage.send'|trans }}" class="button-glossy medium-grey" id="bCreateAccount"><p>&nbsp;</p>
+                        </div>
+                    </form>

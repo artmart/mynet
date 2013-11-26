@@ -1,0 +1,20 @@
+{# page #}
+{% extends 'MYMainBundle:Main:layout.html.twig' %}
+
+{%block main%}
+
+	{# gallery #}
+
+  {% if gallery.galleryHasMedias is defined %}
+      <div class="sonata-media-gallery-media-list">
+            {% for galleryHasMedia in gallery.galleryHasMedias %}
+          <div class="sonata-media-gallery-media-item">
+            <a class="sonata-media-gallery-media-item-link" rel="prettyPhoto[gallery2]" href="{% path galleryHasMedia.media, 'reference' %}">
+              {% thumbnail galleryHasMedia.media, 'list' with{'title': object.title, 'alt': object.title,}%}
+            </a>
+          </div>
+            {% endfor %}
+      </div>
+	{% endif %}
+</div>
+{% endblock %}

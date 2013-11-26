@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#circleBlock a").attr("target","_blank");$(".gallery a[rel^='prettyPhoto']").prettyPhoto()});function fix_heights(){var a=0;a=$("#content").height();if($("#sidebar").height()>a){a=$("#sidebar").height()}$("#content").height(a);$("#sidebar").height(a)};
