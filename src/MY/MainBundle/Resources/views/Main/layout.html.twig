@@ -39,6 +39,7 @@
     {#
 '@MYMainBundle/Resources/public/javascript/slider.js'
 '@MYMainBundle/Resources/public/css/default.css'
+'@MYMainBundle/Resources/public/css/suggestion.css'
 #}
     
     
@@ -53,12 +54,12 @@
       '@MYMainBundle/Resources/public/css/menu.css'
       '@MYMainBundle/Resources/public/css/sliderman.css'			
       '@MYMainBundle/Resources/public/plugins/fancybox/jquery.fancybox-1.3.4.css'
-			'@MYMainBundle/Resources/public/css/suggestion.css'
+			
       filter='cssrewrite,yui_css' %}
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
 			{% endstylesheets %}
 		{% endblock %}
-
+    
    {% block meta %}{% endblock %}
   </head>
   <body>
