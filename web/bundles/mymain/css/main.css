@@ -239,16 +239,17 @@ table{border-collapse:collapse;border-spacing:0}
 body{background:url("/bundles/mymain/images/background.png") top left repeat-x #fff;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:12px}
 div.clear{display:block;clear:both}
 #wrapper{width:980px;margin:0 auto}
-#header{height:255px;position:relative}
-#top-bar{width:980px;height:208px;background:url("/bundles/mymain/images/top-bar-bg.png") bottom left no-repeat}
-
+#header{height:37px;position:relative}
+#top-bar{height:30px;background:url("/bundles/mymain/images/nav1.jpg") bottom left /*no-repeat*/}
+.block1{position: relative;background: url(/bundles/mymain/images/nav_li_a.jpg) repeat-x;height: 81px;}
 
 #container{background:#FFF;width:980px;padding:0 0 10px 0}
-
-#slider-container{height:300px;margin:15px;overflow:hidden;position:relative;width:690px;float:right}
+/*
+#slider-container{height:300px;margin:0px;overflow:hidden;position:relative;width:690px;float:right}
 #slider-container ul.slider{display:block;height:263px;width:9000px;position:absolute;top:0;left:-690px}
 #slider-container ul.slider li{display:block;float:left;width:690px;height:263px}
-#content{background:none repeat scroll 0 0 #fff;float:left;min-height:350px;padding:20px;width:470px;line-height:18px;position:relative}
+*/
+#content{background:none repeat scroll 0 0 #fff;float:left;min-height:350px;padding:20px;width:580px;line-height:18px;position:relative}
 #content.wide{width:660px;}
 #content h2.content-title{color:#ffa92d;display:block;font-size:20px;font-weight:bold;margin:0 0 20px;line-height:30px}
 #sidebar{float:left;width:240px;margin:10px 0 0 10px}
@@ -277,7 +278,7 @@ ul#bottom-menu h2{display: block;font-size: 17px;font-weight: bold;margin: 10px 
 .welcome-message h2.title{background:url("/bundles/mymain/images/arrow-bot.png") center left no-repeat;font-size:24px;padding:0 0 0 25px;margin:0 0 10px 0}
 .welcome-message .text{font-size:12px;line-height:16px;color:#6e6e6e}
 .welcome-message a.more{display:block;margin:20px 0 0 0;color:#1d83cf;font-size:22px}
-.happerning{margin:30px 0 0 0;width:480px;overflow:hidden}
+.happerning{margin:0 0 0 0;width:580px;overflow:hidden}
 .happerning h2.title{background:url("/bundles/mymain/images/arrow-bot.png") center left no-repeat;font-size:20px;padding:0 0 0 25px;margin:0 0 10px 0}
 .happerning h2.title a{background:0;font-size:20px;text-decoration:none;color:#000}
 .happerning .section{float:left;width:200px; margin:0 10px 0 0;}
@@ -380,8 +381,8 @@ ul#sidebar_links li a{text-decoration:none;color:#434343}
 
 .logo_image
 {
-  width: 425px;
-  height: 209px;
+ /* width: 425px;*/
+  height: 35px;
 }
 
 .video_box
@@ -748,4 +749,35 @@ em
   font-size: 13px;
   color: #171717;
 }
+
+
+/*Products*/
+.product {
+	width:580px;
+	margin: 10px 0px;
+}
+
+.product h3 {
+	width:580px;
+	height:20px;
+	/*text-indent:700px;
+	overflow:hidden;*/
+	border-bottom: 1px dashed #2e2304;
+	margin: 10px 0px 15px 0px;
+	padding: 0px 0px 5px 0px;
+}
+.product a {
+	border: 1px solid #6698bd;
+	display:inline;	
+	float:left;
+	margin: 6px 0px 6px 11px;
+}
+.product a:hover {
+	border: 1px solid #c40000;
+}
+.product img {
+	border: 6px solid #ffffff;
+}
+
+
 

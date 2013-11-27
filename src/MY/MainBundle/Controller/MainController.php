@@ -31,7 +31,7 @@ class MainController extends Controller
     $sliders = $em->getRepository('MYMainBundle:Slider')->findAll();
     $rightads = $em->getRepository('MYMainBundle:Ads')->findRightAds();
     $leftads = $em->getRepository('MYMainBundle:Ads')->findLeftAds();
-    return array('news' => $news, /*'events' => $events, 'events_categorys' => $events_categorys,*/ 'sliders' => $sliders, 'rightads' => $rightads, 'leftads'=>$leftads);
+    return array('news' => $news, 'sliders' => $sliders, 'rightads' => $rightads, 'leftads'=>$leftads);
   }
    
   /**
@@ -135,6 +135,26 @@ class MainController extends Controller
     }
   
     return array('page' => 'gallery', 'type' => $type, 'slug' => $slug, 'info' => $gallery);
+  }
+  
+  
+  /**
+   *
+   * Route : carousel
+   * @Template()
+   * @Cache(smaxage="3600")
+   */
+  public function carouselAction()
+  { 
+    $em = $this->getDoctrine()->getEntityManager();
+    
+  
+    $news = $em->getRepository('MYMainBundle:News')->findAllHomepageNews();
+    //$sliders = $em->getRepository('MYMainBundle:Slider')->findAll();
+    //$rightads = $em->getRepository('MYMainBundle:Ads')->findRightAds();
+    //$leftads = $em->getRepository('MYMainBundle:Ads')->findLeftAds();
+    return $this->render('MYMainBundle:Main:carousel.html.twig', array('news' => $news));
+    //return array('news' => $news /*, 'events' => $events, 'events_categorys' => $events_categorys, 'sliders' => $sliders, 'rightads' => $rightads, 'leftads'=>$leftads*/);
   }
   
 }

@@ -1,0 +1,38 @@
+{##### bunners ########}
+{#
+<h2>Գովազդ</h2>             
+{% for ad in rightads %}
+<br />
+  {% if (ad.image is defined) and (ad.image is not null) %}
+       <a href="{{ad.link}}" target="_blank">
+         {% thumbnail ad.image, 'right' with{'alt': ad.title, 'title' : ad.title} %}
+       </a>
+  {%endif%}
+<br />
+{% endfor %}   
+<br />
+#}
+<h2 class="title"><a href="{{ path('my_main_main_news') }}">{{'menutop.news'|trans}}</a></h2>
+ <ul id="events-list2" class="jcarousel-skin-events">
+		{% for new in news %}
+        <li>
+          <div class="section">
+            <a href="{{path('my_news_detailed', {'slug': new.slug})}}">
+              <img src="{% path new.image, 'list' %}" class="event_pics1" alt="{{new.title}}" />
+              {#<div class="text">
+                  <div class="date">{new.startDate|date('d/m/Y G:i')}</div>
+              </div>#}
+              <div class="title_home">{{new.title|raw}}</div>
+               {# <div class="text">
+                <div class="short_content">{{new.shortcontent|raw}}</div>
+                </div>#}
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+        </ul>
+          
+            
+     
+
+

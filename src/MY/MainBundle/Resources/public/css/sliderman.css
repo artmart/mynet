@@ -1,10 +1,10 @@
 .c { clear: both; }
 
-#slider_container_2 { float: left; margin: 0; padding: 0px; width: 690px; height: 300px;}
+#slider_container_2 { float: left; margin: 0; padding: 0px; /*width: 690px; */ height: 300px;}
 
 .SliderName_2 {
   float: left;
-  width: 710px;
+ /* width: 710px;*/
   height: 345px;
   overflow: hidden;
 }
