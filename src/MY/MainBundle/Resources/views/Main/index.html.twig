@@ -97,6 +97,9 @@
       <h3>Բաժիններ</h3>
       <a href="{{ path('my_main_concurs_concurs') }}">
           <img src="/bundles/mymain/images/product1.gif" alt="product" />
+          {#<div class="text">
+                  <div class="short_content">jhfgjhgfjhgj</div>
+          </div>#}
       </a> 
 		  <a href="{{ path('my_main_concurs_concurs') }}">
           <img src="/bundles/mymain/images/product2.gif" alt="product" />
@@ -164,6 +167,57 @@
     </div>
 </div>
 {% endblock %}
-{%block rightmenu%}   
- {% include 'MYMainBundle:Main:rightmenu.html.twig' %}
+{%block article%}
+<br /><br />
+<article>
+<ul class="about_list">
+    <h2 class="ind2">Նորություններ</h2>
+<li>
+<figure><img src="/bundles/mymain/images/img1.jpg" alt=""/></figure>
+<div>
+<h6>Aliquam congue fermentum</h6>
+Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
+<a href="#" class="button">Ավելին</a>
+</div>
+{#<div class="clear"></div>#}
+</li>
+<!--Added by Me-->
+<li>
+<figure><img src="/bundles/mymain/images/img1.jpg" alt=""/></figure>
+<div>
+<h6>Aliquam congue fermentum</h6>
+Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
+<a href="#" class="button">Ավելին</a>
+</div>
+{#<div class="clear"></div>#}
+</li>
+<!--  -->
+ <h2 class="ind2">Հետաքրքրաշարժ</h2>
+<li>
+<figure><img src="/bundles/mymain/images/img2.jpg" alt=""/></figure>
+<div>
+<h6>Aliquam erat</h6>
+Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
+<a href="#" class="button">Ավելին</a>
+</div>
+{#<div class="clear"></div>#}
+</li>
+<li class="m_bottom_zero">
+<figure><img src="/bundles/mymain/images/img3.jpg" alt=""/></figure>
+<div>
+<h6>Donec dignissim</h6>
+Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
+<a href="#" class="button">Ավելին</a>
+</div>
+{#<div class="clear"></div>#}
+</li>
+</ul>
+</article>
+
 {% endblock %}
+
+
+
+{#%block rightmenu%}   
+ {% include 'MYMainBundle:Main:rightmenu.html.twig' %}
+{% endblock %#}

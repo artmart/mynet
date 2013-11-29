@@ -779,5 +779,29 @@ em
 	border: 6px solid #ffffff;
 }
 
+/*##########*/
+article, figure {display:inline}
 
+h2.ind2{ margin-bottom:37px;}
 
+/*==================================== Links ======================================================== */
+a {color:#969696;outline:none; text-decoration:none; cursor:pointer;}
+a:hover{ color:#404040; text-decoration:none;}
+
+.button, .button1{background: url("/bundles/mymain/images/bg_link.gif") 0 0 repeat-x #6c9d11;color: #FFFFFF;display: inline-block;font-size: 13px;line-height: 18px;padding: 7px 13px 8px;margin-top:21px; border-radius: .3em;}
+.button:hover, .button1:hover{ background:#1e2021;color:#fff;}
+.button1{padding:7px 27px 8px;margin-top:15px;}
+/*********************************Displays*************************************/
+.block{ display:block;}
+.inline-block{ display:inline-block;}
+
+/*********************************header*************************************/
+
+.about_list>li, .about_list{overflow:visible !important;}
+.about_list>li{border-bottom: 1px solid #e0e4e0;padding-bottom: 25px;margin-bottom:28px;}
+.about_list>li>div{overflow: hidden;}
+.about_list>li>figure{display:inline-block;float: left;margin: 0 16px 0 0;}
+h6{font-size:12px; font-style:italic; color:#4a4a4a; text-decoration:underline; margin-bottom:3px; padding:0px 0 2px 13px;font-weight:normal;}
+.about_list .button{margin: 9px 0 0;padding-left:26px;padding-right:26px;}
+.about_list {width: 350px; float: left;}
+.clear {clear:both;width:100%;line-height:0;font-size:0;}

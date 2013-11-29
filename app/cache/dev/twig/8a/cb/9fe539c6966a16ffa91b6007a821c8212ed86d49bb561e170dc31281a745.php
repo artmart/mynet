@@ -13,7 +13,7 @@ class __TwigTemplate_8acb9fe539c6966a16ffa91b6007a821c8212ed86d49bb561e170dc3128
             'keywords' => array($this, 'block_keywords'),
             'description' => array($this, 'block_description'),
             'main' => array($this, 'block_main'),
-            'rightmenu' => array($this, 'block_rightmenu'),
+            'article' => array($this, 'block_article'),
         );
     }
 
@@ -100,57 +100,59 @@ class __TwigTemplate_8acb9fe539c6966a16ffa91b6007a821c8212ed86d49bb561e170dc3128
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product1.gif\" alt=\"product\" />
-      </a> 
+          ";
+        // line 103
+        echo "      </a> 
 \t\t  <a href=\"";
-        // line 101
+        // line 104
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product2.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 104
+        // line 107
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product3.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 107
+        // line 110
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product4.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 110
+        // line 113
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product5.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 113
+        // line 116
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product6.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 116
+        // line 119
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product7.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 119
+        // line 122
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product8.gif\" alt=\"product\" />
       </a>
       <a href=\"";
-        // line 122
+        // line 125
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product7.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 125
+        // line 128
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product8.gif\" alt=\"product\" />
@@ -161,61 +163,61 @@ class __TwigTemplate_8acb9fe539c6966a16ffa91b6007a821c8212ed86d49bb561e170dc3128
     <div class=\"product\">
       <h3>Այլ</h3>
       <a href=\"";
-        // line 133
+        // line 136
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product1.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 136
+        // line 139
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product2.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 139
+        // line 142
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product3.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 142
+        // line 145
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product4.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 145
+        // line 148
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product5.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 148
+        // line 151
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product6.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 151
+        // line 154
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product7.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 154
+        // line 157
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product8.gif\" alt=\"product\" />
       </a>
       <a href=\"";
-        // line 157
+        // line 160
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product7.gif\" alt=\"product\" />
       </a> 
 \t\t  <a href=\"";
-        // line 160
+        // line 163
         echo $this->env->getExtension('routing')->getPath("my_main_concurs_concurs");
         echo "\">
           <img src=\"/bundles/mymain/images/product8.gif\" alt=\"product\" />
@@ -226,13 +228,61 @@ class __TwigTemplate_8acb9fe539c6966a16ffa91b6007a821c8212ed86d49bb561e170dc3128
 ";
     }
 
-    // line 167
-    public function block_rightmenu($context, array $blocks = array())
+    // line 170
+    public function block_article($context, array $blocks = array())
     {
-        echo "   
- ";
-        // line 168
-        $this->env->loadTemplate("MYMainBundle:Main:rightmenu.html.twig")->display($context);
+        // line 171
+        echo "<br /><br />
+<article>
+<ul class=\"about_list\">
+    <h2 class=\"ind2\">Նորություններ</h2>
+<li>
+<figure><img src=\"/bundles/mymain/images/img1.jpg\" alt=\"\"/></figure>
+<div>
+<h6>Aliquam congue fermentum</h6>
+Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
+<a href=\"#\" class=\"button\">Ավելին</a>
+</div>
+";
+        // line 183
+        echo "</li>
+<!--Added by Me-->
+<li>
+<figure><img src=\"/bundles/mymain/images/img1.jpg\" alt=\"\"/></figure>
+<div>
+<h6>Aliquam congue fermentum</h6>
+Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
+<a href=\"#\" class=\"button\">Ավելին</a>
+</div>
+";
+        // line 193
+        echo "</li>
+<!--  -->
+ <h2 class=\"ind2\">Հետաքրքրաշարժ</h2>
+<li>
+<figure><img src=\"/bundles/mymain/images/img2.jpg\" alt=\"\"/></figure>
+<div>
+<h6>Aliquam erat</h6>
+Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
+<a href=\"#\" class=\"button\">Ավելին</a>
+</div>
+";
+        // line 204
+        echo "</li>
+<li class=\"m_bottom_zero\">
+<figure><img src=\"/bundles/mymain/images/img3.jpg\" alt=\"\"/></figure>
+<div>
+<h6>Donec dignissim</h6>
+Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
+<a href=\"#\" class=\"button\">Ավելին</a>
+</div>
+";
+        // line 213
+        echo "</li>
+</ul>
+</article>
+
+";
     }
 
     public function getTemplateName()
@@ -247,6 +297,6 @@ class __TwigTemplate_8acb9fe539c6966a16ffa91b6007a821c8212ed86d49bb561e170dc3128
 
     public function getDebugInfo()
     {
-        return array (  235 => 168,  230 => 167,  219 => 160,  213 => 157,  207 => 154,  201 => 151,  195 => 148,  189 => 145,  183 => 142,  177 => 139,  171 => 136,  165 => 133,  154 => 125,  148 => 122,  142 => 119,  136 => 116,  130 => 113,  124 => 110,  118 => 107,  112 => 104,  106 => 101,  100 => 98,  95 => 95,  92 => 70,  72 => 47,  63 => 45,  60 => 44,  57 => 43,  53 => 42,  43 => 36,  37 => 5,  31 => 4,);
+        return array (  281 => 213,  271 => 204,  259 => 193,  248 => 183,  235 => 171,  232 => 170,  221 => 163,  215 => 160,  209 => 157,  203 => 154,  197 => 151,  191 => 148,  185 => 145,  179 => 142,  173 => 139,  167 => 136,  156 => 128,  150 => 125,  144 => 122,  138 => 119,  132 => 116,  126 => 113,  120 => 110,  114 => 107,  108 => 104,  105 => 103,  100 => 98,  95 => 95,  92 => 70,  72 => 47,  63 => 45,  60 => 44,  57 => 43,  53 => 42,  43 => 36,  37 => 5,  31 => 4,);
     }
 }

@@ -12,7 +12,7 @@ class PageTreeSortController__JMSInjector
     public static function inject($container) {
         require_once '/var/www/mynet/app/cache/dev/jms_diextra/proxies/MY-MainBundle-Controller-PageTreeSortController.php';
         $a = new \JMS\AopBundle\Aop\InterceptorLoader($container, array('MY\\MainBundle\\Controller\\PageTreeSortController' => array('upAction' => array(0 => 'security.access.method_interceptor'), 'downAction' => array(0 => 'security.access.method_interceptor'))));
-        $instance = new \EnhancedProxy800d6335_53dec1f9d041c19ebe90100ea45ce8ac4e4975c7\__CG__\MY\MainBundle\Controller\PageTreeSortController();
+        $instance = new \EnhancedProxy1afba3b4_53dec1f9d041c19ebe90100ea45ce8ac4e4975c7\__CG__\MY\MainBundle\Controller\PageTreeSortController();
         $instance->__CGInterception__setLoader($a);
         return $instance;
     }

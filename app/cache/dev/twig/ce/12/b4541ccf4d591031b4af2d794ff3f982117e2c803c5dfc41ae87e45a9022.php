@@ -17,6 +17,7 @@ class __TwigTemplate_ce12b4541ccf4d591031b4af2d794ff3f982117e2c803c5dfc41ae87e45
             'stylesheets' => array($this, 'block_stylesheets'),
             'meta' => array($this, 'block_meta'),
             'main' => array($this, 'block_main'),
+            'article' => array($this, 'block_article'),
             'rightmenu' => array($this, 'block_rightmenu'),
         );
     }
@@ -130,18 +131,20 @@ class __TwigTemplate_ce12b4541ccf4d591031b4af2d794ff3f982117e2c803c5dfc41ae87e45
         echo "</div>
 ";
         // line 128
+        $this->displayBlock('article', $context, $blocks);
+        // line 129
         $this->displayBlock('rightmenu', $context, $blocks);
         echo "    
 ";
-        // line 130
+        // line 131
         echo "<div  class=\"clearfix\">
 ";
-        // line 132
+        // line 133
         echo "
 ";
-        // line 134
-        $this->env->loadTemplate("MYMainBundle:Main:socials.html.twig")->display($context);
         // line 135
+        $this->env->loadTemplate("MYMainBundle:Main:socials.html.twig")->display($context);
+        // line 136
         echo "</div>
 </div>  
 </div>
@@ -150,7 +153,7 @@ class __TwigTemplate_ce12b4541ccf4d591031b4af2d794ff3f982117e2c803c5dfc41ae87e45
 <div class=\"block1\"></div>
 <div id=\"footer\">
   &COPY; 2013 - ";
-        // line 142
+        // line 143
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
         echo " ";
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("texts.footertexts"), "html", null, true);
@@ -166,7 +169,7 @@ class __TwigTemplate_ce12b4541ccf4d591031b4af2d794ff3f982117e2c803c5dfc41ae87e45
 </body>
 ";
         echo trim(preg_replace('/>\s+</', '><', ob_get_clean()));
-        // line 153
+        // line 154
         echo "</html>";
     }
 
@@ -339,6 +342,11 @@ class __TwigTemplate_ce12b4541ccf4d591031b4af2d794ff3f982117e2c803c5dfc41ae87e45
     }
 
     // line 128
+    public function block_article($context, array $blocks = array())
+    {
+    }
+
+    // line 129
     public function block_rightmenu($context, array $blocks = array())
     {
     }
@@ -355,6 +363,6 @@ class __TwigTemplate_ce12b4541ccf4d591031b4af2d794ff3f982117e2c803c5dfc41ae87e45
 
     public function getDebugInfo()
     {
-        return array (  342 => 128,  337 => 126,  332 => 70,  328 => 68,  278 => 66,  273 => 53,  270 => 52,  266 => 35,  198 => 33,  193 => 19,  190 => 18,  184 => 10,  179 => 7,  174 => 6,  170 => 153,  154 => 142,  145 => 135,  143 => 134,  140 => 132,  137 => 130,  133 => 128,  130 => 127,  128 => 126,  122 => 122,  119 => 116,  116 => 107,  106 => 90,  102 => 88,  97 => 85,  89 => 81,  82 => 78,  74 => 71,  72 => 70,  69 => 69,  67 => 52,  63 => 50,  59 => 35,  56 => 18,  45 => 10,  41 => 7,  37 => 6,  33 => 4,  31 => 3,  27 => 1,);
+        return array (  350 => 129,  345 => 128,  340 => 126,  335 => 70,  331 => 68,  276 => 53,  273 => 52,  269 => 35,  201 => 33,  196 => 19,  193 => 18,  187 => 10,  182 => 7,  177 => 6,  157 => 143,  148 => 136,  146 => 135,  143 => 133,  140 => 131,  136 => 129,  134 => 128,  131 => 127,  129 => 126,  123 => 122,  117 => 107,  107 => 90,  103 => 88,  98 => 85,  90 => 81,  83 => 78,  75 => 71,  73 => 70,  70 => 69,  68 => 52,  64 => 50,  46 => 10,  42 => 7,  38 => 6,  34 => 4,  32 => 3,  28 => 1,  281 => 66,  271 => 204,  259 => 193,  248 => 183,  235 => 171,  232 => 170,  221 => 163,  215 => 160,  209 => 157,  203 => 154,  197 => 151,  191 => 148,  185 => 145,  179 => 142,  173 => 154,  167 => 136,  156 => 128,  150 => 125,  144 => 122,  138 => 119,  132 => 116,  126 => 113,  120 => 116,  114 => 107,  108 => 104,  105 => 103,  100 => 98,  95 => 95,  92 => 70,  72 => 47,  63 => 45,  60 => 35,  57 => 18,  53 => 42,  43 => 36,  37 => 5,  31 => 4,);
     }
 }

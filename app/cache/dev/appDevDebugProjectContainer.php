@@ -947,11 +947,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return EntityManager5295062399990_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager5295062399990_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
+     * @return EntityManager5298ceb07f0ee_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager5298ceb07f0ee_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once '/var/www/mynet/app/cache/dev/jms_diextra/doctrine/EntityManager_5295062399990.php';
+        require_once '/var/www/mynet/app/cache/dev/jms_diextra/doctrine/EntityManager_5298ceb07f0ee.php';
 
         $a = $this->get('annotation_reader');
 
@@ -993,7 +993,7 @@ class appDevDebugProjectContainer extends Container
         $i = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $h);
         $this->get('doctrine.orm.default_manager_configurator')->configure($i);
 
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager5295062399990_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager5298ceb07f0ee_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
     }
 
     /**
@@ -3817,7 +3817,7 @@ class appDevDebugProjectContainer extends Container
         $h = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($e, array('login_path' => '/admin/login', 'use_referer' => true, 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path'));
         $h->setProviderKey('admin');
 
-        return $this->services['security.firewall.map.context.admin'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => $this->get('security.channel_listener'), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($a, array(0 => $b, 1 => $this->get('fos_user.user_manager'), 2 => $this->get('my.facebook.user'), 3 => $this->get('my_user.my_provider')), 'user', $c, $d), 2 => $g, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($a, $this->get('security.authentication.manager'), $this->get('security.authentication.session_strategy'), $e, 'admin', $h, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($f, $e, array('login_path' => '/admin/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $c), array('check_path' => '/admin/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $c, $d), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($a, '52950622eee4b', $c), 5 => $this->get('security.access_listener'), 6 => new \Symfony\Component\Security\Http\Firewall\SwitchUserListener($a, $b, $this->get('security.user_checker'), 'admin', $this->get('security.access.decision_manager'), $c, '_switch_user', 'ROLE_ALLOWED_TO_SWITCH', $d)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($a, $this->get('security.authentication.trust_resolver'), $e, 'admin', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $e, '/admin/login', false), NULL, NULL, $c));
+        return $this->services['security.firewall.map.context.admin'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => $this->get('security.channel_listener'), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($a, array(0 => $b, 1 => $this->get('fos_user.user_manager'), 2 => $this->get('my.facebook.user'), 3 => $this->get('my_user.my_provider')), 'user', $c, $d), 2 => $g, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($a, $this->get('security.authentication.manager'), $this->get('security.authentication.session_strategy'), $e, 'admin', $h, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($f, $e, array('login_path' => '/admin/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $c), array('check_path' => '/admin/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $c, $d), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($a, '5298ceafe0c8c', $c), 5 => $this->get('security.access_listener'), 6 => new \Symfony\Component\Security\Http\Firewall\SwitchUserListener($a, $b, $this->get('security.user_checker'), 'admin', $this->get('security.access.decision_manager'), $c, '_switch_user', 'ROLE_ALLOWED_TO_SWITCH', $d)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($a, $this->get('security.authentication.trust_resolver'), $e, 'admin', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $e, '/admin/login', false), NULL, NULL, $c));
     }
 
     /**
@@ -3847,7 +3847,7 @@ class appDevDebugProjectContainer extends Container
         $j = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($d, array('login_path' => 'fos_user_security_login', 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false));
         $j->setProviderKey('public');
 
-        return $this->services['security.firewall.map.context.public'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => $this->get('security.channel_listener'), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($a, array(0 => $this->get('security.user.provider.concrete.chain_provider'), 1 => $this->get('fos_user.user_manager'), 2 => $this->get('my.facebook.user'), 3 => $this->get('my_user.my_provider')), 'public', $b, $c), 2 => $h, 3 => new \FOS\FacebookBundle\Security\Firewall\FacebookListener($a, $f, $g, $d, 'public', $i, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $d, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $b), array('check_path' => '/loginFb', 'app_url' => 'sovorel.am', 'server_url' => 'sovorel.am', 'use_forward' => false, 'require_previous_session' => true, 'display' => 'page', 'create_user_if_not_exists' => false, 'redirect_to_facebook_login' => true), $b, $c), 4 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($a, $f, $g, $d, 'public', $j, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $d, array('login_path' => 'fos_user_security_login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $b), array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $b, $c), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($a, '52950622eee4b', $b), 6 => $this->get('security.access_listener')), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($a, $this->get('security.authentication.trust_resolver'), $d, 'public', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $d, 'fos_user_security_login', false), NULL, NULL, $b));
+        return $this->services['security.firewall.map.context.public'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => $this->get('security.channel_listener'), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($a, array(0 => $this->get('security.user.provider.concrete.chain_provider'), 1 => $this->get('fos_user.user_manager'), 2 => $this->get('my.facebook.user'), 3 => $this->get('my_user.my_provider')), 'public', $b, $c), 2 => $h, 3 => new \FOS\FacebookBundle\Security\Firewall\FacebookListener($a, $f, $g, $d, 'public', $i, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $d, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $b), array('check_path' => '/loginFb', 'app_url' => 'sovorel.am', 'server_url' => 'sovorel.am', 'use_forward' => false, 'require_previous_session' => true, 'display' => 'page', 'create_user_if_not_exists' => false, 'redirect_to_facebook_login' => true), $b, $c), 4 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($a, $f, $g, $d, 'public', $j, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $d, array('login_path' => 'fos_user_security_login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $b), array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $b, $c), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($a, '5298ceafe0c8c', $b), 6 => $this->get('security.access_listener')), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($a, $this->get('security.authentication.trust_resolver'), $d, 'public', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $d, 'fos_user_security_login', false), NULL, NULL, $b));
     }
 
     /**
@@ -5660,7 +5660,15 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSonata_Media_Buzz_Connector_CurlService()
     {
-        return $this->services['sonata.media.buzz.connector.curl'] = new \Buzz\Client\Curl();
+        $this->services['sonata.media.buzz.connector.curl'] = $instance = new \Buzz\Client\Curl();
+
+        $instance->setIgnoreErrors(true);
+        $instance->setMaxRedirects(5);
+        $instance->setTimeout(5);
+        $instance->setVerifyPeer(true);
+        $instance->setProxy(NULL);
+
+        return $instance;
     }
 
     /**
@@ -5673,7 +5681,15 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSonata_Media_Buzz_Connector_FileGetContentsService()
     {
-        return $this->services['sonata.media.buzz.connector.file_get_contents'] = new \Buzz\Client\FileGetContents();
+        $this->services['sonata.media.buzz.connector.file_get_contents'] = $instance = new \Buzz\Client\FileGetContents();
+
+        $instance->setIgnoreErrors(true);
+        $instance->setMaxRedirects(5);
+        $instance->setTimeout(5);
+        $instance->setVerifyPeer(true);
+        $instance->setProxy(NULL);
+
+        return $instance;
     }
 
     /**
@@ -7141,6 +7157,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource('xliff', '/var/www/mynet/vendor/sonata-project/admin-bundle/Sonata/AdminBundle/Resources/translations/SonataAdminBundle.zh_CN.xliff', 'zh_CN', 'SonataAdminBundle');
         $instance->addResource('xliff', '/var/www/mynet/vendor/sonata-project/admin-bundle/Sonata/AdminBundle/Resources/translations/SonataAdminBundle.pt.xliff', 'pt', 'SonataAdminBundle');
         $instance->addResource('xliff', '/var/www/mynet/vendor/sonata-project/admin-bundle/Sonata/AdminBundle/Resources/translations/SonataAdminBundle.sk.xliff', 'sk', 'SonataAdminBundle');
+        $instance->addResource('xliff', '/var/www/mynet/vendor/sonata-project/media-bundle/Sonata/MediaBundle/Resources/translations/SonataMediaBundle.ru.xliff', 'ru', 'SonataMediaBundle');
         $instance->addResource('xliff', '/var/www/mynet/vendor/sonata-project/media-bundle/Sonata/MediaBundle/Resources/translations/SonataMediaBundle.pl.xliff', 'pl', 'SonataMediaBundle');
         $instance->addResource('xliff', '/var/www/mynet/vendor/sonata-project/media-bundle/Sonata/MediaBundle/Resources/translations/SonataMediaBundle.de.xliff', 'de', 'SonataMediaBundle');
         $instance->addResource('xliff', '/var/www/mynet/vendor/sonata-project/media-bundle/Sonata/MediaBundle/Resources/translations/SonataMediaBundle.es.xliff', 'es', 'SonataMediaBundle');
@@ -7738,7 +7755,7 @@ class appDevDebugProjectContainer extends Container
         $a = $this->get('security.user_checker');
         $b = $this->get('security.encoder_factory');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_manager'), $a, 'admin', $b, true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('52950622eee4b'), 2 => new \FOS\FacebookBundle\Security\Authentication\Provider\FacebookProvider('public', $this->get('fos_facebook.api'), $this->get('my.facebook.user'), $a, false), 3 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('my_user.my_provider'), $a, 'public', $b, true), 4 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('52950622eee4b')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_manager'), $a, 'admin', $b, true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5298ceafe0c8c'), 2 => new \FOS\FacebookBundle\Security\Authentication\Provider\FacebookProvider('public', $this->get('fos_facebook.api'), $this->get('my.facebook.user'), $a, false), 3 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('my_user.my_provider'), $a, 'public', $b, true), 4 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5298ceafe0c8c')), true);
 
         $instance->setEventDispatcher($this->get('event_dispatcher'));
 
@@ -8690,8 +8707,8 @@ class appDevDebugProjectContainer extends Container
             'jms_di_extra.cache_warmer.controller_file_blacklist' => array(
 
             ),
-            'jms_di_extra.doctrine_integration.entity_manager.file' => '/var/www/mynet/app/cache/dev/jms_diextra/doctrine/EntityManager_5295062399990.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager5295062399990_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => '/var/www/mynet/app/cache/dev/jms_diextra/doctrine/EntityManager_5298ceb07f0ee.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager5298ceb07f0ee_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'security.secured_services' => array(
 
             ),

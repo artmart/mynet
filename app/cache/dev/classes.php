@@ -115,7 +115,7 @@ return true;
 }
 public function getId()
 {
-if (!$this->started) {
+if (!$this->started && !$this->closed) {
 return''; }
 return $this->saveHandler->getId();
 }
@@ -8246,7 +8246,11 @@ $fieldDescription->setAssociationAdmin($admin);
 }
 public function getObject($id)
 {
-return $this->getModelManager()->find($this->getClass(), $id);
+$object = $this->getModelManager()->find($this->getClass(), $id);
+foreach ($this->getExtensions() as $extension) {
+$extension->alterObject($this, $object);
+}
+return $object;
 }
 public function getForm()
 {
@@ -8539,7 +8543,11 @@ return $this->classnameLabel;
 }
 public function getPersistentParameters()
 {
-return array();
+$parameters = array();
+foreach ($this->getExtensions() as $extension) {
+$parameters = array_merge($parameters, $extension->getPersistentParameters($this));
+}
+return $parameters;
 }
 public function getPersistentParameter($name)
 {
@@ -8926,6 +8934,8 @@ public function configureSideMenu(AdminInterface $admin, MenuItemInterface $menu
 public function validate(AdminInterface $admin, ErrorElement $errorElement, $object);
 public function configureQuery(AdminInterface $admin, ProxyQueryInterface $query, $context ='list');
 public function alterNewInstance(AdminInterface $admin, $object);
+public function alterObject(AdminInterface $admin, $object);
+public function getPersistentParameters(AdminInterface $admin);
 public function preUpdate(AdminInterface $admin, $object);
 public function postUpdate(AdminInterface $admin, $object);
 public function prePersist(AdminInterface $admin, $object);
@@ -8964,6 +8974,10 @@ public function validate(AdminInterface $admin, ErrorElement $errorElement, $obj
 public function configureQuery(AdminInterface $admin, ProxyQueryInterface $query, $context ='list')
 {}
 public function alterNewInstance(AdminInterface $admin, $object)
+{}
+public function alterObject(AdminInterface $admin, $object)
+{}
+public function getPersistentParameters(AdminInterface $admin)
 {}
 public function preUpdate(AdminInterface $admin, $object)
 {}
@@ -14330,7 +14344,7 @@ $file->setContent(file_get_contents($request->get('image')));
 $provider->updateMetadata($media);
 $provider->generateThumbnails($media);
 $this->mediaManager->save($media);
-return new RedirectResponse($this->router->generate('admin_sonata_media_media_view', array('id'=> $media->getId())));
+return new RedirectResponse($this->router->generate('admin_sonata_media_media_show', array('id'=> $media->getId())));
 }
 public function isEditable(MediaInterface $media)
 {
@@ -15603,7 +15617,7 @@ $referenceFile = $this->getFilesystem()->get($key);
 } else {
 $referenceFile = $this->getFilesystem()->get($key, true);
 $metadata = $this->metadata ? $this->metadata->get($media, $referenceFile->getName()) : array();
-$referenceFile->setContent(file_get_contents($this->getReferenceImage($media)), $metadata);
+$referenceFile->setContent($this->browser->get($this->getReferenceImage($media))->getContent(), $metadata);
 }
 return $referenceFile;
 }

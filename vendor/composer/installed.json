@@ -6,18 +6,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/fabpot/Twig-extensions.git",
-            "reference": "d4dc27cc824b2b4faf7edbfbe652e3fdaec696b6"
+            "reference": "0fdc8ca874d415b65c7a0d31376cac9c9ed775af"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/d4dc27cc824b2b4faf7edbfbe652e3fdaec696b6",
-            "reference": "d4dc27cc824b2b4faf7edbfbe652e3fdaec696b6",
+            "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/0fdc8ca874d415b65c7a0d31376cac9c9ed775af",
+            "reference": "0fdc8ca874d415b65c7a0d31376cac9c9ed775af",
             "shasum": ""
         },
         "require": {
             "twig/twig": "~1.0"
         },
-        "time": "2013-11-11 19:09:41",
+        "time": "2013-11-27 18:19:39",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -377,16 +377,17 @@
         "source": {
             "type": "git",
             "url": "https://github.com/sonata-project/SonataBlockBundle.git",
-            "reference": "863459ab2a9bfb19e38196c2d643c862901e623d"
+            "reference": "6d1fa2640a5d3c5fb4c345ebcca298940c01bab4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/863459ab2a9bfb19e38196c2d643c862901e623d",
-            "reference": "863459ab2a9bfb19e38196c2d643c862901e623d",
+            "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/6d1fa2640a5d3c5fb4c345ebcca298940c01bab4",
+            "reference": "6d1fa2640a5d3c5fb4c345ebcca298940c01bab4",
             "shasum": ""
         },
         "require": {
             "doctrine/common": "~2.3",
+            "knplabs/knp-menu-bundle": "~1.1",
             "symfony/form": "~2.2",
             "symfony/http-foundation": "~2.2"
         },
@@ -398,7 +399,7 @@
             "sonata-project/admin-bundle": "~2.2@dev",
             "sonata-project/cache-bundle": "~2.1"
         },
-        "time": "2013-11-14 12:48:22",
+        "time": "2013-11-28 16:17:38",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -441,12 +442,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-            "reference": "d02b7e0b5246556c338ba004050db4f456f06690"
+            "reference": "49f48f3c51dbca9cb84a077e8f50c6f66019d74b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/d02b7e0b5246556c338ba004050db4f456f06690",
-            "reference": "d02b7e0b5246556c338ba004050db4f456f06690",
+            "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/49f48f3c51dbca9cb84a077e8f50c6f66019d74b",
+            "reference": "49f48f3c51dbca9cb84a077e8f50c6f66019d74b",
             "shasum": ""
         },
         "require": {
@@ -477,7 +478,7 @@
             "sonata-project/doctrine-orm-admin-bundle": "2.2.*@dev",
             "sonata-project/intl-bundle": "2.1.*"
         },
-        "time": "2013-11-25 11:47:35",
+        "time": "2013-11-28 21:49:59",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -947,12 +948,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/jdorn/sql-formatter.git",
-            "reference": "51a660e97b59f91b814eeee6e0a38e3cd726dd30"
+            "reference": "8859d664737492d313c34796731b35eca851b362"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/51a660e97b59f91b814eeee6e0a38e3cd726dd30",
-            "reference": "51a660e97b59f91b814eeee6e0a38e3cd726dd30",
+            "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/8859d664737492d313c34796731b35eca851b362",
+            "reference": "8859d664737492d313c34796731b35eca851b362",
             "shasum": ""
         },
         "require": {
@@ -961,14 +962,14 @@
         "require-dev": {
             "phpunit/phpunit": "3.7.*"
         },
-        "time": "2013-09-18 14:43:47",
+        "time": "2013-11-27 22:51:13",
         "type": "library",
         "extra": {
             "branch-alias": {
                 "dev-master": "1.3.x-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "classmap": [
                 "lib"
@@ -1376,12 +1377,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/schmittjoh/JMSSecurityExtraBundle.git",
-            "reference": "b342e02983e9cd522d9dce1c0dfeef27c8a25850"
+            "reference": "60dfc92443a6b3e093c961e5d85920384670834c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/schmittjoh/JMSSecurityExtraBundle/zipball/b342e02983e9cd522d9dce1c0dfeef27c8a25850",
-            "reference": "b342e02983e9cd522d9dce1c0dfeef27c8a25850",
+            "url": "https://api.github.com/repos/schmittjoh/JMSSecurityExtraBundle/zipball/60dfc92443a6b3e093c961e5d85920384670834c",
+            "reference": "60dfc92443a6b3e093c961e5d85920384670834c",
             "shasum": ""
         },
         "require": {
@@ -1406,7 +1407,7 @@
             "symfony/validator": "*",
             "symfony/yaml": "*"
         },
-        "time": "2013-11-06 16:12:19",
+        "time": "2013-11-27 11:37:02",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -1449,12 +1450,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-            "reference": "15ed873424fb30af43569014a48f6d216fdefe78"
+            "reference": "228b47b990f781422a45f478d65c821bdcac45f8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/15ed873424fb30af43569014a48f6d216fdefe78",
-            "reference": "15ed873424fb30af43569014a48f6d216fdefe78",
+            "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/228b47b990f781422a45f478d65c821bdcac45f8",
+            "reference": "228b47b990f781422a45f478d65c821bdcac45f8",
             "shasum": ""
         },
         "require": {
@@ -1462,7 +1463,7 @@
             "sonata-project/admin-bundle": ">=2.2.2",
             "symfony/symfony": "~2.2"
         },
-        "time": "2013-11-14 12:36:59",
+        "time": "2013-11-28 16:27:11",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -1628,12 +1629,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-            "reference": "922258c8913e1d93ed1d7c95eb5ee5d43204963a"
+            "reference": "c387e85cb5639726940e1c37e81c8a319ca04363"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/922258c8913e1d93ed1d7c95eb5ee5d43204963a",
-            "reference": "922258c8913e1d93ed1d7c95eb5ee5d43204963a",
+            "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/c387e85cb5639726940e1c37e81c8a319ca04363",
+            "reference": "c387e85cb5639726940e1c37e81c8a319ca04363",
             "shasum": ""
         },
         "require": {
@@ -1656,7 +1657,7 @@
             "rackspace/php-opencloud": "1.6.*",
             "sonata-project/doctrine-orm-admin-bundle": ">=2.2.1"
         },
-        "time": "2013-11-14 18:16:51",
+        "time": "2013-11-28 21:59:02",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -3825,116 +3826,6 @@
         ]
     },
     {
-        "name": "symfony/symfony",
-        "version": "2.3.x-dev",
-        "version_normalized": "2.3.9999999.9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/symfony.git",
-            "reference": "7921772901d5d512faddc585bb4316b14a50cf04"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/symfony/zipball/7921772901d5d512faddc585bb4316b14a50cf04",
-            "reference": "7921772901d5d512faddc585bb4316b14a50cf04",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/common": "~2.2",
-            "php": ">=5.3.3",
-            "psr/log": "~1.0",
-            "symfony/icu": "~1.0",
-            "twig/twig": "~1.11"
-        },
-        "replace": {
-            "symfony/browser-kit": "self.version",
-            "symfony/class-loader": "self.version",
-            "symfony/config": "self.version",
-            "symfony/console": "self.version",
-            "symfony/css-selector": "self.version",
-            "symfony/debug": "self.version",
-            "symfony/dependency-injection": "self.version",
-            "symfony/doctrine-bridge": "self.version",
-            "symfony/dom-crawler": "self.version",
-            "symfony/event-dispatcher": "self.version",
-            "symfony/filesystem": "self.version",
-            "symfony/finder": "self.version",
-            "symfony/form": "self.version",
-            "symfony/framework-bundle": "self.version",
-            "symfony/http-foundation": "self.version",
-            "symfony/http-kernel": "self.version",
-            "symfony/intl": "self.version",
-            "symfony/locale": "self.version",
-            "symfony/monolog-bridge": "self.version",
-            "symfony/options-resolver": "self.version",
-            "symfony/process": "self.version",
-            "symfony/propel1-bridge": "self.version",
-            "symfony/property-access": "self.version",
-            "symfony/proxy-manager-bridge": "self.version",
-            "symfony/routing": "self.version",
-            "symfony/security": "self.version",
-            "symfony/security-bundle": "self.version",
-            "symfony/serializer": "self.version",
-            "symfony/stopwatch": "self.version",
-            "symfony/swiftmailer-bridge": "self.version",
-            "symfony/templating": "self.version",
-            "symfony/translation": "self.version",
-            "symfony/twig-bridge": "self.version",
-            "symfony/twig-bundle": "self.version",
-            "symfony/validator": "self.version",
-            "symfony/web-profiler-bundle": "self.version",
-            "symfony/yaml": "self.version"
-        },
-        "require-dev": {
-            "doctrine/data-fixtures": "1.0.*",
-            "doctrine/dbal": "~2.2",
-            "doctrine/orm": "~2.2,>=2.2.3",
-            "ircmaxell/password-compat": "1.0.*",
-            "monolog/monolog": "~1.3",
-            "ocramius/proxy-manager": ">=0.3.1,<0.4-dev",
-            "propel/propel1": "1.6.*"
-        },
-        "time": "2013-11-26 17:12:57",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.3-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\": "src/"
-            },
-            "classmap": [
-                "src/Symfony/Component/HttpFoundation/Resources/stubs",
-                "src/Symfony/Component/Intl/Resources/stubs"
-            ],
-            "files": [
-                "src/Symfony/Component/Intl/Resources/stubs/functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            }
-        ],
-        "description": "The Symfony PHP framework",
-        "homepage": "http://symfony.com",
-        "keywords": [
-            "framework"
-        ]
-    },
-    {
         "name": "hwi/oauth-bundle",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -4046,6 +3937,116 @@
             "wordpress",
             "yahoo",
             "yandex"
+        ]
+    },
+    {
+        "name": "symfony/symfony",
+        "version": "2.3.x-dev",
+        "version_normalized": "2.3.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/symfony.git",
+            "reference": "843b221f447f3a195fdfbd4e75032d0091b2b996"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/symfony/zipball/843b221f447f3a195fdfbd4e75032d0091b2b996",
+            "reference": "843b221f447f3a195fdfbd4e75032d0091b2b996",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/common": "~2.2",
+            "php": ">=5.3.3",
+            "psr/log": "~1.0",
+            "symfony/icu": "~1.0",
+            "twig/twig": "~1.11"
+        },
+        "replace": {
+            "symfony/browser-kit": "self.version",
+            "symfony/class-loader": "self.version",
+            "symfony/config": "self.version",
+            "symfony/console": "self.version",
+            "symfony/css-selector": "self.version",
+            "symfony/debug": "self.version",
+            "symfony/dependency-injection": "self.version",
+            "symfony/doctrine-bridge": "self.version",
+            "symfony/dom-crawler": "self.version",
+            "symfony/event-dispatcher": "self.version",
+            "symfony/filesystem": "self.version",
+            "symfony/finder": "self.version",
+            "symfony/form": "self.version",
+            "symfony/framework-bundle": "self.version",
+            "symfony/http-foundation": "self.version",
+            "symfony/http-kernel": "self.version",
+            "symfony/intl": "self.version",
+            "symfony/locale": "self.version",
+            "symfony/monolog-bridge": "self.version",
+            "symfony/options-resolver": "self.version",
+            "symfony/process": "self.version",
+            "symfony/propel1-bridge": "self.version",
+            "symfony/property-access": "self.version",
+            "symfony/proxy-manager-bridge": "self.version",
+            "symfony/routing": "self.version",
+            "symfony/security": "self.version",
+            "symfony/security-bundle": "self.version",
+            "symfony/serializer": "self.version",
+            "symfony/stopwatch": "self.version",
+            "symfony/swiftmailer-bridge": "self.version",
+            "symfony/templating": "self.version",
+            "symfony/translation": "self.version",
+            "symfony/twig-bridge": "self.version",
+            "symfony/twig-bundle": "self.version",
+            "symfony/validator": "self.version",
+            "symfony/web-profiler-bundle": "self.version",
+            "symfony/yaml": "self.version"
+        },
+        "require-dev": {
+            "doctrine/data-fixtures": "1.0.*",
+            "doctrine/dbal": "~2.2",
+            "doctrine/orm": "~2.2,>=2.2.3",
+            "ircmaxell/password-compat": "1.0.*",
+            "monolog/monolog": "~1.3",
+            "ocramius/proxy-manager": ">=0.3.1,<0.4-dev",
+            "propel/propel1": "1.6.*"
+        },
+        "time": "2013-11-28 18:00:39",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.3-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\": "src/"
+            },
+            "classmap": [
+                "src/Symfony/Component/HttpFoundation/Resources/stubs",
+                "src/Symfony/Component/Intl/Resources/stubs"
+            ],
+            "files": [
+                "src/Symfony/Component/Intl/Resources/stubs/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "The Symfony PHP framework",
+        "homepage": "http://symfony.com",
+        "keywords": [
+            "framework"
         ]
     },
     {
