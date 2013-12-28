@@ -20,7 +20,7 @@ class NewsRepository extends EntityRepository
             ->createQuery('SELECT n FROM MYMainBundle:News n WHERE n.news_date > \'2013-01-01\' ORDER BY n.news_date DESC');
 
 
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }
@@ -31,7 +31,7 @@ class NewsRepository extends EntityRepository
     $res = $em->createQuery("SELECT n FROM MYMainBundle:News n WHERE n.slug = :slug");
 
     $res->setParameters(array('slug' => $slug));
-    $res->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$res->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $res->getResult();
   }
@@ -42,7 +42,7 @@ class NewsRepository extends EntityRepository
             ->createQuery('SELECT n FROM MYMainBundle:News n WHERE n.news_date < \'2013-01-01\' ORDER BY n.news_date DESC');
 
 
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }
@@ -53,7 +53,7 @@ class NewsRepository extends EntityRepository
             ->createQuery('SELECT n FROM MYMainBundle:News n WHERE n.homepage_status = 1
 			ORDER BY n.created DESC');
     $query->setMaxResults(10);
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+   // $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }

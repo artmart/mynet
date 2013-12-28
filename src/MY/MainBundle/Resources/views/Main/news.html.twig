@@ -13,6 +13,7 @@
       {% if news.image %}
         <a href="{{path('my_news_detailed', {'slug': news.slug})}}" class="read-more">
           <img src="{% path news.image, 'list' %}" class="news_pics" alt="{{news.title}}" />
+       {#% thumbnail news.image, 'list' with{'alt': news.title, 'title' : news.title} %#}
         </a>
       {% endif %}
 

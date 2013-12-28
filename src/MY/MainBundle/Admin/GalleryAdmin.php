@@ -77,12 +77,12 @@ class GalleryAdmin extends Admin
                 ->add('image', 'sonata_type_model_list', array('required' => false), array('link_parameters' => array('context' => 'default', 'provider' => 'sonata.media.provider.image')))
                 ->add('gallery')
             ->end()
-            ->with('Translations')
+            /*->with('Translations')
             ->add('translations', 'a2lix_translations', array(
                 'by_reference' => false,
                 'locales' => array_keys($languages)
             ))
-            ->end()
+            ->end()*/
         ;
     }
 

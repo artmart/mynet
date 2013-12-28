@@ -176,6 +176,19 @@ body.sonata-bc {
     visibility: visible;
 }
 
+.sonata-bc td.sonata-ba-list-field.sonata-ba-list-field-boolean i {
+    margin-right: 1ex;
+}
+.sonata-bc td.sonata-ba-list-field.sonata-ba-list-field-boolean a:hover {
+    text-decoration: none;
+}
+
+.sonata-bc td.sonata-ba-list-field.sonata-ba-list-field-currency,
+.sonata-bc td.sonata-ba-list-field.sonata-ba-list-field-percent,
+.sonata-bc td.sonata-ba-list-field.sonata-ba-list-field-integer {
+    text-align: right;
+}
+
 .sonata-bc td.sonata-ba-list-field.sonata-ba-list-field-select {
     text-align: center;
 }
@@ -378,4 +391,21 @@ legend.sonata-ba-fieldset-collapsed-description + .sonata-ba-collapsed-fields {
 
 span.field-actions {
     margin-left: 10px;
+}
+
+/* X-editable */
+.sonata-bc td.sonata-ba-list-field .editable {
+    cursor: pointer;
+}
+.sonata-bc td.sonata-ba-list-field .btn.editable {
+    border-bottom: solid 1px #BBB;
+}
+.sonata-bc td.sonata-ba-list-field .editable-empty:not(.editable-open) {
+    display: none;
+}
+.sonata-bc .sonata-ba-list tr:hover .editable-empty {
+    display: inline-block;
+}
+.editable-pre-wrapped {
+    white-space: normal;
 }

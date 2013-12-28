@@ -5,7 +5,7 @@
 .SliderName_2 {
   float: left;
  /* width: 710px;*/
-  height: 345px;
+  height: 300px;
   overflow: hidden;
 }
 /*
@@ -42,7 +42,7 @@
   text-shadow: 0 1px 3px #000000;
 }
 */
-#SliderNameNavigation_2 { margin: 0; padding: 10px 0 0 0; height: 16px; text-align: center; overflow-y: hidden; position: relative; top: -80px; float: right; right: 40px;}
+#SliderNameNavigation_2 { margin: 0; padding: 10px 0 0 0; height: 16px; text-align: center; overflow-y: hidden; position: relative; top: -40px; float: right; right: 40px;}
 
 #SliderNameNavigation_2 a:link, #SliderNameNavigation_2 a:active, #SliderNameNavigation_2 a:visited, #SliderNameNavigation_2 a:hover{
   margin: 0;

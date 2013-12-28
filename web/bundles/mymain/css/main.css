@@ -1,4 +1,5 @@
 .news_pic{ height: 173px !important; }
+/*
 .jcarousel-skin-events{display:block;margin:0 auto;width:480px}
 .jcarousel-skin-events .jcarousel-container{clear:both}
 .jcarousel-skin-events .jcarousel-direction-rtl{direction:rtl}
@@ -57,6 +58,7 @@
 .jcarousel-skin-tango .jcarousel-prev-vertical:hover,.jcarousel-skin-tango .jcarousel-prev-vertical:focus{background-position:0 -32px}
 .jcarousel-skin-tango .jcarousel-prev-vertical:active{background-position:0 -64px}
 .jcarousel-skin-tango .jcarousel-prev-disabled-vertical,.jcarousel-skin-tango .jcarousel-prev-disabled-vertical:hover,.jcarousel-skin-tango .jcarousel-prev-disabled-vertical:focus,.jcarousel-skin-tango .jcarousel-prev-disabled-vertical:active{cursor:default;background-position:0 -96px}
+*/
 div.pp_default .pp_top,div.pp_default .pp_top .pp_middle,div.pp_default .pp_top .pp_left,div.pp_default .pp_top .pp_right,div.pp_default .pp_bottom,div.pp_default .pp_bottom .pp_left,div.pp_default .pp_bottom .pp_middle,div.pp_default .pp_bottom .pp_right{height:13px}
 div.pp_default .pp_top .pp_left{background:url(/bundles/mymain/images/prettyPhoto/default/sprite.png) -78px -93px no-repeat}
 div.pp_default .pp_top .pp_middle{background:url(/bundles/mymain/images/prettyPhoto/default/sprite_x.png) top left repeat-x}
@@ -227,6 +229,7 @@ div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline
 * html .pp_top .pp_middle,* html .pp_bottom .pp_middle{left:0;position:static}
 .pp_top .pp_right,.pp_bottom .pp_right{height:20px;left:auto;position:absolute;right:0;top:0;width:20px}
 .pp_fade,.pp_gallery li.default a img{display:none}
+
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
 body{line-height:1}
@@ -243,13 +246,13 @@ div.clear{display:block;clear:both}
 #top-bar{height:30px;background:url("/bundles/mymain/images/nav1.jpg") bottom left /*no-repeat*/}
 .block1{position: relative;background: url(/bundles/mymain/images/nav_li_a.jpg) repeat-x;height: 81px;}
 
-#container{background:#FFF;width:980px;padding:0 0 10px 0}
+#container{/*background:#FFF;*/width:980px;padding:0 0 10px 0}
 /*
 #slider-container{height:300px;margin:0px;overflow:hidden;position:relative;width:690px;float:right}
 #slider-container ul.slider{display:block;height:263px;width:9000px;position:absolute;top:0;left:-690px}
 #slider-container ul.slider li{display:block;float:left;width:690px;height:263px}
 */
-#content{background:none repeat scroll 0 0 #fff;float:left;min-height:350px;padding:20px;width:580px;line-height:18px;position:relative}
+#content{/*background:none repeat scroll 0 0 #fff;*/float:left;min-height:350px;padding:20px;width:580px;line-height:18px;position:relative}
 #content.wide{width:660px;}
 #content h2.content-title{color:#ffa92d;display:block;font-size:20px;font-weight:bold;margin:0 0 20px;line-height:30px}
 #sidebar{float:left;width:240px;margin:10px 0 0 10px}
@@ -397,47 +400,16 @@ ul#sidebar_links li a{text-decoration:none;color:#434343}
   width: 88px;
 }
 
-.event_list
-{
-  width: 200px;
-  height: 100px;
-}
-
 .gallery_pics
 {
   width: 200px;
   height: 133px;
 }
 
-.event_pics
-{
-  width: 200px;
-  height: 100px;
-}
-
-.event_pics1
-{
-  width: 200px;
-  height: 126px;
-}
-
-
 .home_slider
 {
    width: 695px; 
    height: 348px;
-}
-
-#ballet_pic
-{
-   width: 208px; 
-   height: 93px;
-}
-
-#theatre_pic
-{
-  width: 209px; 
-  height: 93px;
 }
 
 #gallery_pic
@@ -446,18 +418,11 @@ ul#sidebar_links li a{text-decoration:none;color:#434343}
   height: 93px;
 }
 
-#matenadaran_pic
-{
-  width: 206px; 
-  height: 92px;
-}
-
 .news_pics
 {
   width: 200px; 
   height: 126px;
 }
-
 
 .ad_block
 {
@@ -588,17 +553,6 @@ em
   margin-top: 20px;
 }
 
-.content-title-en
-{
-  color:#ffa92d;
-  display:block;
-  font-size:20px;
-  font-weight:bold;
-  margin:0 0 20px;
-  line-height:30px;
-  font-family: Trebuchet MS;
-}
-
 .content-title-am
 {
   color:#ffa92d;
@@ -606,25 +560,6 @@ em
   font-size:20px;
   font-weight:bold;
   margin:0 0 20px;
-  line-height:30px;
-}
-
-.event-title-en
-{
-  color:#ffa92d;
-  display:block;
-  font-size:20px;
-  font-weight:bold;
-  line-height:30px;
-  font-family: Trebuchet MS;
-}
-
-.event-title-am
-{
-  color:#ffa92d;
-  display:block;
-  font-size:20px;
-  font-weight:bold;
   line-height:30px;
 }
 
@@ -664,83 +599,11 @@ em
   margin-bottom: 20px;
 }
 
-.each_event_text_title {
-  color: #FFA92D;
-  font-size: 14px;
-  font-weight: bold;
-}
-
 .new_img img {
   height: 45px !important;
   margin-left: -250px;
   margin-top: -20px;
   width: 45px !important;
-}
-
-#zoo-am
-{
-  width: 192px;
-  height: 136px;
-  background: url('/bundles/mymain/images/zoo-am.png') no-repeat;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-#zoo-en
-{
-  width: 192px;
-  height: 136px;
-  background: url('/bundles/mymain/images/zoo-en.png') no-repeat;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-#night-am
-{
-  width: 160px;
-  height: 124px;
-  background: url('/bundles/mymain/images/night-am.png') no-repeat;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-#night-en
-{
-  width: 160px;
-  height: 124px;
-  background: url('/bundles/mymain/images/night-en.png') no-repeat;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.jc_item1{
-    background:url("/bundles/mymain/images/bottom_menu.png") 0 0 no-repeat;
-    width: 208px;
-    height: 93px;
-    position: absolute;
-    display: block;
-}
-
-.jc_item2{
-    background:url("/bundles/mymain/images/bottom_menu.png") -210px 0 no-repeat;
-    width: 208px;
-    height: 93px;
-    position: absolute;
-    display: block;
-}
-
-.jc_item3{
-    background:url("/bundles/mymain/images/bottom_menu.png") -420px 0 no-repeat;
-    width: 208px;
-    height: 93px;
-    position: absolute;
-}
-
-.jc_item4{
-    background:url("/bundles/mymain/images/bottom_menu.png") -630px 0 no-repeat;
-    width: 208px;
-    height: 93px;
-    position: absolute;
 }
 
 .title_home

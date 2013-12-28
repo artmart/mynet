@@ -11,8 +11,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="gallery")
  * @ORM\Entity(repositoryClass="MY\MainBundle\Entity\GalleryRepository")
- * @Gedmo\TranslationEntity(class="MY\MainBundle\Entity\GalleryTranslations")
  */
+
 class Gallery
 {
 
@@ -50,7 +50,6 @@ class Gallery
   /**
    * @var string name
    * 
-   * @Gedmo\Translatable
    * @ORM\Column(type="string", length=100, nullable=true)
    */
   private $title;
@@ -66,17 +65,6 @@ class Gallery
    * @ORM\ManyToOne(targetEntity="MY\MediaBundle\Entity\Gallery", cascade={"persist"})
    */
   protected $gallery;
-
-  /**
-   * @ORM\OneToMany(targetEntity="GalleryTranslations", mappedBy="object", cascade={"persist", "remove"})
-   */
-  protected $translations;
-
-  /**
-   * Required for Translatable behaviour
-   * @Gedmo\Locale
-   */
-  protected $locale;
 
   /**
    * Get id
@@ -132,48 +120,6 @@ class Gallery
   public function getGallery()
   {
     return $this->gallery;
-  }
-
-  /**
-   * Constructor
-   */
-  public function __construct()
-  {
-    $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
-  }
-
-  /**
-   * Add translations
-   *
-   * @param \MY\MainBundle\Entity\GalleryTranslations $translations
-   * @return Gallery
-   */
-  public function addTranslation(\MY\MainBundle\Entity\GalleryTranslations $translations)
-  {
-    $translations->setObject($this);
-    $this->translations->add($translations);
-
-    return $this;
-  }
-
-  /**
-   * Remove translations
-   *
-   * @param \MY\MainBundle\Entity\GalleryTranslations $translations
-   */
-  public function removeTranslation(\MY\MainBundle\Entity\GalleryTranslations $translations)
-  {
-    $this->translations->removeElement($translations);
-  }
-
-  /**
-   * Get translations
-   *
-   * @return \Doctrine\Common\Collections\Collection 
-   */
-  public function getTranslations()
-  {
-    return $this->translations;
   }
 
   /**

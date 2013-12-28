@@ -27,7 +27,7 @@ class SuggestionRepository extends EntityRepository
                            WHERE s.in_homepage = 1 AND s.in_discussion = ' . (int)$disc . ' AND s.status = ' . Suggestion::STATUS_OK . '
                            ORDER BY s.position');
 
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }
@@ -59,7 +59,7 @@ class SuggestionRepository extends EntityRepository
                            WHERE s.in_top = 1
                            ORDER BY s.likes DESC");
 
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }
@@ -75,7 +75,7 @@ class SuggestionRepository extends EntityRepository
                            WHERE s.status = " . Suggestion::STATUS_OK . " AND s.in_discussion = 0 AND s.archive = 0
                            ORDER BY s.likes DESC");
 
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
     $query->setMaxResults('10');
     return $query->getResult();
   } 
@@ -91,7 +91,7 @@ class SuggestionRepository extends EntityRepository
                            WHERE s.status = " . Suggestion::STATUS_OK . " AND s.in_discussion = 0 AND s.archive = 0
                            ORDER BY s.likes DESC");
 
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
     return $query->getResult();
   } 
   
@@ -137,7 +137,7 @@ class SuggestionRepository extends EntityRepository
                            AND s.status = " . Suggestion::STATUS_OK);
     $query->setParameter('slug', $slug);
     
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getSingleResult();
   }
@@ -154,7 +154,7 @@ class SuggestionRepository extends EntityRepository
                            AND s.status = " . Suggestion::STATUS_OK);
     $query->setParameter('slug', $slug);
     
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getSingleResult();
   }

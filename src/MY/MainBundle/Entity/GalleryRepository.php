@@ -33,7 +33,7 @@ class GalleryRepository extends EntityRepository
             ->createQuery('SELECT g FROM MYMainBundle:Gallery g
 			WHERE g.type = ' . intval($typeID));
 
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }
@@ -45,7 +45,7 @@ class GalleryRepository extends EntityRepository
             ->createQuery('SELECT g FROM MYMainBundle:Gallery g
 			WHERE g.slug = \'' . $slug . '\'');
 
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }

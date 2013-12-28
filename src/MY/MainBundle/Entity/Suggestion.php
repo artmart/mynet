@@ -14,7 +14,6 @@ use MY\MediaBundle\Entity\Media;
  *
  * @ORM\Table(name="suggestion")
  * @ORM\Entity(repositoryClass="MY\MainBundle\Entity\SuggestionRepository")
- * @Gedmo\TranslationEntity(class="MY\MainBundle\Entity\SuggestionTranslation")
  * @ORM\HasLifecycleCallbacks()
  */
 class Suggestion
@@ -79,14 +78,12 @@ class Suggestion
 
   /**
    * @var text $title
-   * @Gedmo\Translatable
    * @ORM\Column(length=255, nullable=true)
    */
   protected $title;
 
   /**
    * @var text $title_list
-   * @Gedmo\Translatable
    * @ORM\Column(length=255, nullable=true)
    */
   protected $title_list;
@@ -99,14 +96,12 @@ class Suggestion
 
   /**
    * @var text $intro
-   * @Gedmo\Translatable
    * @ORM\Column(type="text", length=2000, nullable=true)
    */
   protected $intro;
 
   /**
    * @var text $suggestion
-   * @Gedmo\Translatable
    * @ORM\Column(type="text", length=2000, nullable=true)
    */
   protected $suggestion;
@@ -119,7 +114,6 @@ class Suggestion
 
   /**
    * @var text $description
-   * @Gedmo\Translatable
    * @ORM\Column(type="text", length=20000, nullable=true)
    */
   protected $solution;
@@ -174,17 +168,6 @@ class Suggestion
   protected $position = "1000";
 
   /**
-   * @ORM\OneToMany(targetEntity="SuggestionTranslation", mappedBy="object", cascade={"persist", "remove"})
-   */
-  protected $translations;
-
-  /**
-   * Required for Translatable behaviour
-   * @Gedmo\Locale
-   */
-  protected $locale;
-
-  /**
    * @ORM\Column(type="boolean", nullable=true)
    */
   protected $show_contact;
@@ -205,12 +188,7 @@ class Suggestion
    * @ORM\Column(type="array", nullable=true)
    */
   protected $edited;
-
-  /**
-   * @ORM\Column(type="array", nullable=true)
-   */
-  protected $translated;
-
+ 
   /**
    * @ORM\Column(type="array", nullable=true)
    */
@@ -234,22 +212,19 @@ class Suggestion
   protected $file;
   
   /**
-   * @var integer $meta_title
-   * @Gedmo\Translatable
+   * @var string $meta_title
    * @ORM\Column(name="meta_title", type="string", length=200, nullable=true)
    */
   protected $meta_title;
 
   /**
-   * @var integer $meta_desc
-   * @Gedmo\Translatable
+   * @var string $meta_desc
    * @ORM\Column(name="meta_desc", type="string", length=300, nullable=true)
    */
   protected $meta_desc;
 
   /**
-   * @var integer $meta_kw
-   * @Gedmo\Translatable
+   * @var string $meta_kw
    * @ORM\Column(name="meta_kw", type="string", length=200, nullable=true)
    */
   protected $meta_kw;
@@ -325,40 +300,7 @@ class Suggestion
       unlink($file);
     }
   }
-
-  /**
-   * Add translations
-   *
-   * @param ProjectTranslation $translations
-   */
-  public function addTranslation(SuggestionTranslation $translation)
-  {
-    if ($translation->getContent())
-    {
-      $translation->setObject($this);
-      $this->translations->add($translation);
-    }
-  }
-
-  /**
-   * Remove translations
-   *
-   * @param MY\MainBundle\Entity\SuggestionTranslation $translations
-   */
-  public function removeTranslation(\MY\MainBundle\Entity\SuggestionTranslation $translations)
-  {
-    $this->translations->removeElement($translations);
-  }
-
-  /**
-   * Get translations
-   *
-   * @return Doctrine\Common\Collections\Collection 
-   */
-  public function getTranslations()
-  {
-    return $this->translations;
-  }
+ 
 
   /**
    * Set title_list
@@ -371,14 +313,6 @@ class Suggestion
     $this->title_list = $titleList;
 
     return $this;
-  }
-
-  /**
-   * Constructor
-   */
-  public function __construct()
-  {
-    $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
   }
 
   /**
@@ -972,29 +906,6 @@ class Suggestion
   public function getEdited()
   {
     return $this->edited;
-  }
-
-  /**
-   * Set translated
-   *
-   * @param string $translated
-   * @return Suggestion
-   */
-  public function setTranslated($translated)
-  {
-    $this->translated = $translated;
-
-    return $this;
-  }
-
-  /**
-   * Get translated
-   *
-   * @return array 
-   */
-  public function getTranslated()
-  {
-    return $this->translated;
   }
 
   /**

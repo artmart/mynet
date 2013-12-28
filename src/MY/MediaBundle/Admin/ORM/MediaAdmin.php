@@ -102,8 +102,9 @@ class MediaAdmin extends Admin {
       return;
     }
 
-    $formMapper->getFormBuilder()->appendNormTransformer(new ProviderDataTransformer($this->pool));
-
+    //$formMapper->getFormBuilder()->appendNormTransformer(new ProviderDataTransformer($this->pool));
+    $formMapper->getFormBuilder()->addModelTransformer(new ProviderDataTransformer($this->pool, $this->getClass()), true);
+    
     $provider = $this->pool->getProvider($media->getProviderName());
 
     if ($media->getId()) {

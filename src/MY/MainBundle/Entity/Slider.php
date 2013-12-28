@@ -79,7 +79,7 @@ class Slider
    * @param \MY\MediaBundle\Entity\Media $image
    * @return City
    */
-  public function setImage(\MY\MediaBundle\Entity\Media $image = null)
+  public function setImage(\MY\MediaBundle\Entity\Media $image)
   {
     $this->image = $image;
 

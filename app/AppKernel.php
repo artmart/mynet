@@ -29,7 +29,8 @@ class AppKernel extends Kernel
         //new Sonata\IntlBundle\SonataIntlBundle(),
         new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
         new Sonata\MediaBundle\SonataMediaBundle(),
-        //new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+        new Sonata\CoreBundle\SonataCoreBundle(),
+        
         new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
         new Knp\Bundle\MenuBundle\KnpMenuBundle(),
         new FOS\UserBundle\FOSUserBundle(),
@@ -41,19 +42,20 @@ class AppKernel extends Kernel
         new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         new Trsteel\CkeditorBundle\TrsteelCkeditorBundle(),
         new Genemu\Bundle\FormBundle\GenemuFormBundle(),
-        new FOS\FacebookBundle\FOSFacebookBundle(),
+        //new FOS\FacebookBundle\FOSFacebookBundle(),
         new BCC\CronManagerBundle\BCCCronManagerBundle(),
         //new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),        
         // required
         new MY\MainBundle\MYMainBundle(),
         new MY\UserBundle\MYUserBundle(),
-        new MY\MediaBundle\MYMediaBundle(),              
+        new MY\MediaBundle\MYMediaBundle(), 
+        //new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
         
     );
 
     if (in_array($this->getEnvironment(), array('dev', 'test')))
     {
-      //$bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
+      $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
       $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
       $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
       $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

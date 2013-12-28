@@ -11,7 +11,6 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="realty")
  * @ORM\Entity(repositoryClass="MY\MainBundle\Entity\RealtyRepository")
- * @Gedmo\TranslationEntity(class="MY\MainBundle\Entity\RealtyTranslations")
  */
 
 class Realty
@@ -42,21 +41,18 @@ class Realty
   /**
    * @var text $title
    * 
-   * @Gedmo\Translatable
    * @ORM\Column(length=255, nullable=true)
    */
   protected $title;
 
   /**
    * @var text $content
-   * @Gedmo\Translatable
    * @ORM\Column(type="text", length=20000, nullable=true)
    */
   protected $content;
 
   /**
    * @var text $short_content
-   * @Gedmo\Translatable
    * @ORM\Column(type="text", length=20000, nullable=true)
    */
   protected $short_content;
@@ -104,18 +100,7 @@ class Realty
    * @Gedmo\Timestampable
    */
   private $updated;
-  
-  /**
-   * @ORM\OneToMany(targetEntity="RealtyTranslations", mappedBy="object", cascade={"persist", "remove"})
-   */
-  protected $translations;
-
-  /**
-   * Required for Translatable behaviour
-   * @Gedmo\Locale
-   */
-  protected $locale;
-   
+     
   /**
    * @var integer $image
    * @ORM\ManyToOne(targetEntity="MY\MediaBundle\Entity\Media", cascade={"persist"})
@@ -123,22 +108,19 @@ class Realty
   protected $image;
   
   /**
-   * @var integer $meta_title
-   * @Gedmo\Translatable
+   * @var string $meta_title
    * @ORM\Column(name="meta_title", type="string", length=200, nullable=true)
    */
   protected $meta_title;
 
   /**
-   * @var integer $meta_desc
-   * @Gedmo\Translatable
+   * @var string $meta_desc
    * @ORM\Column(name="meta_desc", type="string", length=300, nullable=true)
    */
   protected $meta_desc;
 
   /**
-   * @var integer $meta_kw
-   * @Gedmo\Translatable
+   * @var string $meta_kw
    * @ORM\Column(name="meta_kw", type="string", length=200, nullable=true)
    */
   protected $meta_kw;
@@ -148,15 +130,7 @@ class Realty
    * @ORM\ManyToOne(targetEntity="MY\MediaBundle\Entity\Gallery", cascade={"persist"})
    */
   protected $gallery;
-  
-  /**
-   * Constructor
-   */
-  public function __construct()
-  {
-    $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
-  }
-  
+    
   /**
    * Get id
    *
@@ -442,41 +416,7 @@ class Realty
   {
     return $this->meta_kw;
   }
-  
-  /**
-   * Add translations
-   *
-   * @param \MY\MainBundle\Entity\RealtyTranslations $translations
-   * @return Realty
-   */
-  public function addTranslation(\MY\MainBundle\Entity\RealtyTranslations $translations)
-  {
-    $this->translations[] = $translations;
-    $translations->setObject($this);
-
-    return $this;
-  }
-
-  /**
-   * Remove translations
-   *
-   * @param \MY\MainBundle\Entity\RealtyTranslations $translations
-   */
-  public function removeTranslation(\MY\MainBundle\Entity\RealtyTranslations $translations)
-  {
-    $this->translations->removeElement($translations);
-  }
-
-  /**
-   * Get translations
-   *
-   * @return \Doctrine\Common\Collections\Collection 
-   */
-  public function getTranslations()
-  {
-    return $this->translations;
-  }
-      
+        
   /**
    * Set image
    *
@@ -531,32 +471,29 @@ class Realty
   {
     return $this->_date;
   }
-  
-  
-    /**
-     * Set gallery
-     *
-     * @param \MY\MediaBundle\Entity\Gallery $gallery
-     * @return School
-     */
-    public function setGallery(\MY\MediaBundle\Entity\Gallery $gallery = null)
-    {
+   
+  /**
+   * Set gallery
+   *
+   * @param \MY\MediaBundle\Entity\Gallery $gallery
+   * @return School
+   */
+   public function setGallery(\MY\MediaBundle\Entity\Gallery $gallery = null) {
         $this->gallery = $gallery;
-    
+
         return $this;
     }
 
-    /**
-     * Get gallery
-     *
-     * @return \MY\MediaBundle\Entity\Gallery 
-     */
-    public function getGallery()
-    {
+  /**
+   * Get gallery
+   *
+   * @return \MY\MediaBundle\Entity\Gallery 
+   */
+    public function getGallery() {
         return $this->gallery;
     }
     
-    /**
+  /**
    * Set homepage_status
    *
    * @param integer $homepageStatus

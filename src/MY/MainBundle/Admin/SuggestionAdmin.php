@@ -105,11 +105,11 @@ class SuggestionAdmin extends Admin
             ->add('show_contact', 'checkbox', array('label' => 'Add the contact form?', 'required' => false,))
             ->add('show_application', 'checkbox', array('label' => 'Add the application form?', 'required' => false,))
             ->end()
-            ->with('Translations')
+           /* ->with('Translations')
             ->add('translations', 'a2lix_translations', array(
                 'by_reference' => false,
                 'locales' => array_keys($languages)))
-            ->end()
+            ->end()*/
             ->with('Media')
             ->add('image', 'sonata_type_model', array('required' => false), array('link_parameters' => array('context' => 'suggestion')))
             ->add('image_slide', 'sonata_type_model', array('required' => false), array('link_parameters' => array('context' => 'suggestion')))
@@ -120,9 +120,9 @@ class SuggestionAdmin extends Admin
             ->with('Edited')
             ->add('edited', 'choice', array('required' => false, 'choices' => $languages, 'multiple' => true, 'expanded' => true))
             ->end()
-            ->with('Translated')
+            /*->with('Translated')
             ->add('translated', 'choice', array('required' => false, 'choices' => $languages, 'multiple' => true, 'expanded' => true))
-            ->end()
+            ->end()*/
             ->with('Corrected')
             ->add('corrected', 'choice', array('required' => false, 'choices' => $languages, 'multiple' => true, 'expanded' => true))
             ->end()

@@ -3,12 +3,12 @@
 {# css #}
 {% block stylesheets %}
   {{parent()}}
-  {% stylesheets output='css/suggestion.css'
+  {#% stylesheets output='css/suggestion.css'
       'bundles/mymain/css/list.css' 
       'bundles/mymain/css/suggestion.css' 
       filter='less,cssrewrite,yui_css' %}
 <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
-  {% endstylesheets %}
+  {% endstylesheets %#}
 {% endblock %}
 
 {#% block title %}{{'feedback.title'|trans}} | MYnet{% endblock %}

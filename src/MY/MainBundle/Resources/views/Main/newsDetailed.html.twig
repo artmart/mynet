@@ -32,7 +32,7 @@ MYYerevan | {{page.title}}
 {%block main%}
 
 <div>
-  {% for id,page in info %}
+  {% for page in info %}
     <div class="item-detailed clearfix">
       <h4>{{ page.newsDate|date('d/m/Y') }}</h4>
       <h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{page.title}}</h2>
@@ -43,7 +43,7 @@ MYYerevan | {{page.title}}
             <div class="news_gallery">
 	      <a class="sonata-media-gallery-media-item-link" rel="prettyPhoto[gallery2]" href="{% path galleryHasMedia.media, 'reference' %}">
 	        {% thumbnail galleryHasMedia.media, 'list' with{'title': page.title, 'alt': page.title, 'height' : '173'}%}
-              </a>
+        </a>
             </div>
           {% endfor %}
         </div>

@@ -49,7 +49,7 @@
         <div id="SliderNameNavigation_2"></div>
         <script type="text/javascript">
         effectsDemo2 = 'rain,stairs,fade';
-        var demoSlider_2 = Sliderman.slider({container: 'SliderName_2', width: 690, height: 300, effects: effectsDemo2,
+        var demoSlider_2 = Sliderman.slider({container: 'SliderName_2', width: 580, height: 300, effects: effectsDemo2,
                 display: {
                         autoplay: 3000,
                         loading: {background: '#000000', opacity: 0.5, image: '/bundles/mymain/images/img/loading.gif'},
@@ -172,15 +172,32 @@
 <article>
 <ul class="about_list">
     <h2 class="ind2">Նորություններ</h2>
-<li>
-<figure><img src="/bundles/mymain/images/img1.jpg" alt=""/></figure>
+    
+{% for new in news %}
+  <li>
+   
+            {% if (new.image is defined) and (new.image is not null) %}
+              <figure>
+              <a href="{{path('my_news_detailed', {'slug': new.slug})}}">
+                {% thumbnail new.image, 'home' with{'alt': new.name, 'title' : new.name} %}
+              </a>
+              </figure>
+            {% endif %}	
+ {#<img src="/bundles/mymain/images/img1.jpg" alt=""/>#}
+           
 <div>
-<h6>Aliquam congue fermentum</h6>
+<h6>
+<a href="{{path('my_news_detailed', {'slug': new.slug})}}">
+          {{new.title}}
+        </a>
+
+</h6>
 Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
 <a href="#" class="button">Ավելին</a>
 </div>
 {#<div class="clear"></div>#}
 </li>
+{% endfor %} 
 <!--Added by Me-->
 <li>
 <figure><img src="/bundles/mymain/images/img1.jpg" alt=""/></figure>

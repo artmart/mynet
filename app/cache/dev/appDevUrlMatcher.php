@@ -24,6 +24,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
     {
         $allow = array();
         $pathinfo = rawurldecode($pathinfo);
+        $context = $this->context;
+        $request = $this->request;
 
         // _homepage
         if ($pathinfo === '/homepage') {
@@ -1290,40 +1292,91 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                     }
 
-                    if (0 === strpos($pathinfo, '/admin/my/main/slider')) {
-                        // admin_my_main_slider_list
-                        if ($pathinfo === '/admin/my/main/slider/list') {
-                            return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::listAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_list',  '_route' => 'admin_my_main_slider_list',);
+                    if (0 === strpos($pathinfo, '/admin/my/main/s')) {
+                        if (0 === strpos($pathinfo, '/admin/my/main/slider')) {
+                            // admin_my_main_slider_list
+                            if ($pathinfo === '/admin/my/main/slider/list') {
+                                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::listAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_list',  '_route' => 'admin_my_main_slider_list',);
+                            }
+
+                            // admin_my_main_slider_create
+                            if ($pathinfo === '/admin/my/main/slider/create') {
+                                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::createAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_create',  '_route' => 'admin_my_main_slider_create',);
+                            }
+
+                            // admin_my_main_slider_batch
+                            if ($pathinfo === '/admin/my/main/slider/batch') {
+                                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::batchAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_batch',  '_route' => 'admin_my_main_slider_batch',);
+                            }
+
+                            // admin_my_main_slider_edit
+                            if (preg_match('#^/admin/my/main/slider/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_my_main_slider_edit')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::editAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_edit',));
+                            }
+
+                            // admin_my_main_slider_delete
+                            if (preg_match('#^/admin/my/main/slider/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_my_main_slider_delete')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::deleteAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_delete',));
+                            }
+
+                            // admin_my_main_slider_show
+                            if (preg_match('#^/admin/my/main/slider/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_my_main_slider_show')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::showAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_show',));
+                            }
+
+                            // admin_my_main_slider_export
+                            if ($pathinfo === '/admin/my/main/slider/export') {
+                                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::exportAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_export',  '_route' => 'admin_my_main_slider_export',);
+                            }
+
                         }
 
-                        // admin_my_main_slider_create
-                        if ($pathinfo === '/admin/my/main/slider/create') {
-                            return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::createAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_create',  '_route' => 'admin_my_main_slider_create',);
-                        }
+                        if (0 === strpos($pathinfo, '/admin/my/main/suggestion')) {
+                            // admin_my_main_suggestion_list
+                            if ($pathinfo === '/admin/my/main/suggestion/list') {
+                                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::listAction',  '_sonata_admin' => 'my.main.admin.suggestion',  '_sonata_name' => 'admin_my_main_suggestion_list',  '_route' => 'admin_my_main_suggestion_list',);
+                            }
 
-                        // admin_my_main_slider_batch
-                        if ($pathinfo === '/admin/my/main/slider/batch') {
-                            return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::batchAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_batch',  '_route' => 'admin_my_main_slider_batch',);
-                        }
+                            // admin_my_main_suggestion_create
+                            if ($pathinfo === '/admin/my/main/suggestion/create') {
+                                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::createAction',  '_sonata_admin' => 'my.main.admin.suggestion',  '_sonata_name' => 'admin_my_main_suggestion_create',  '_route' => 'admin_my_main_suggestion_create',);
+                            }
 
-                        // admin_my_main_slider_edit
-                        if (preg_match('#^/admin/my/main/slider/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_my_main_slider_edit')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::editAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_edit',));
-                        }
+                            // admin_my_main_suggestion_batch
+                            if ($pathinfo === '/admin/my/main/suggestion/batch') {
+                                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::batchAction',  '_sonata_admin' => 'my.main.admin.suggestion',  '_sonata_name' => 'admin_my_main_suggestion_batch',  '_route' => 'admin_my_main_suggestion_batch',);
+                            }
 
-                        // admin_my_main_slider_delete
-                        if (preg_match('#^/admin/my/main/slider/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_my_main_slider_delete')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::deleteAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_delete',));
-                        }
+                            // admin_my_main_suggestion_edit
+                            if (preg_match('#^/admin/my/main/suggestion/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_my_main_suggestion_edit')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::editAction',  '_sonata_admin' => 'my.main.admin.suggestion',  '_sonata_name' => 'admin_my_main_suggestion_edit',));
+                            }
 
-                        // admin_my_main_slider_show
-                        if (preg_match('#^/admin/my/main/slider/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_my_main_slider_show')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::showAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_show',));
-                        }
+                            // admin_my_main_suggestion_delete
+                            if (preg_match('#^/admin/my/main/suggestion/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_my_main_suggestion_delete')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::deleteAction',  '_sonata_admin' => 'my.main.admin.suggestion',  '_sonata_name' => 'admin_my_main_suggestion_delete',));
+                            }
 
-                        // admin_my_main_slider_export
-                        if ($pathinfo === '/admin/my/main/slider/export') {
-                            return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::exportAction',  '_sonata_admin' => 'my.main.admin.slider',  '_sonata_name' => 'admin_my_main_slider_export',  '_route' => 'admin_my_main_slider_export',);
+                            // admin_my_main_suggestion_show
+                            if (preg_match('#^/admin/my/main/suggestion/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_my_main_suggestion_show')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::showAction',  '_sonata_admin' => 'my.main.admin.suggestion',  '_sonata_name' => 'admin_my_main_suggestion_show',));
+                            }
+
+                            // admin_my_main_suggestion_export
+                            if ($pathinfo === '/admin/my/main/suggestion/export') {
+                                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::exportAction',  '_sonata_admin' => 'my.main.admin.suggestion',  '_sonata_name' => 'admin_my_main_suggestion_export',  '_route' => 'admin_my_main_suggestion_export',);
+                            }
+
+                            // admin_my_main_suggestion_suggestion_order
+                            if ($pathinfo === '/admin/my/main/suggestion/suggestion_order') {
+                                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::suggestionOrderAction',  '_sonata_admin' => 'my.main.admin.suggestion',  '_sonata_name' => 'admin_my_main_suggestion_suggestion_order',  '_route' => 'admin_my_main_suggestion_suggestion_order',);
+                            }
+
+                            // admin_my_main_suggestion_reply
+                            if ($pathinfo === '/admin/my/main/suggestion/reply') {
+                                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::replyAction',  '_sonata_admin' => 'my.main.admin.suggestion',  '_sonata_name' => 'admin_my_main_suggestion_reply',  '_route' => 'admin_my_main_suggestion_reply',);
+                            }
+
                         }
 
                     }

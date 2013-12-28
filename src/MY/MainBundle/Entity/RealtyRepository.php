@@ -20,7 +20,7 @@ class RealtyRepository extends EntityRepository
             ->createQuery('SELECT n FROM MYMainBundle:Realty n WHERE n.type=1 and n.status=1 and n._date > \'2013-01-01\' ORDER BY n._date DESC');
 
 
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }
@@ -31,7 +31,7 @@ class RealtyRepository extends EntityRepository
             ->createQuery('SELECT n FROM MYMainBundle:Realty n WHERE n.type=2 and n.status=1 and n._date > \'2013-01-01\' ORDER BY n._date DESC');
 
 
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }
@@ -40,7 +40,7 @@ class RealtyRepository extends EntityRepository
   {
     $query = $this->getEntityManager()
             ->createQuery('SELECT n FROM MYMainBundle:Realty n WHERE n.type=3 and n.status=1 and n._date > \'2013-01-01\' ORDER BY n._date DESC');
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }
@@ -49,7 +49,7 @@ class RealtyRepository extends EntityRepository
   {
     $query = $this->getEntityManager()
             ->createQuery('SELECT n FROM MYMainBundle:Realty n WHERE n.type=4 and n.status=1 ORDER BY n._date DESC');
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }
@@ -58,7 +58,7 @@ class RealtyRepository extends EntityRepository
   {
     $query = $this->getEntityManager()
             ->createQuery('SELECT n FROM MYMainBundle:Realty n WHERE n.type=5 and n.status=1 ORDER BY n._date DESC');
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }
@@ -68,7 +68,7 @@ class RealtyRepository extends EntityRepository
     $em = $this->getEntityManager();
     $res = $em->createQuery("SELECT n FROM MYMainBundle:Realty n WHERE n.slug = :slug");
     $res->setParameters(array('slug' => $slug));
-    $res->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$res->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $res->getResult();
   }
@@ -77,7 +77,7 @@ class RealtyRepository extends EntityRepository
   {
     $query = $this->getEntityManager()
             ->createQuery('SELECT n FROM MYMainBundle:Realty n WHERE n._date < \'2013-01-01\' ORDER BY n._date DESC');
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }
@@ -88,7 +88,7 @@ class RealtyRepository extends EntityRepository
             ->createQuery('SELECT n FROM MYMainBundle:Realty n WHERE n.homepage_status = 1
 			ORDER BY n.created DESC');
     $query->setMaxResults(10);
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
+    //$query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker');
 
     return $query->getResult();
   }

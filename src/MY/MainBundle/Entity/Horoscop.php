@@ -4,14 +4,14 @@ namespace MY\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use Gedmo\Mapping\Annotation as Gedmo;
+//use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * MY\MainBundle\Entity\Horoscop
  *
  * @ORM\Table(name="horoscop")
  * @ORM\Entity(repositoryClass="MY\MainBundle\Entity\HoroscopRepository")
- * @Gedmo\TranslationEntity(class="MY\MainBundle\Entity\HoroscopTranslations")
+ * 
  */
 
 class Horoscop
@@ -34,7 +34,6 @@ class Horoscop
   /**
    * @var string slug
    * 
-   * @Gedmo\Slug(fields={"name"})
    * @ORM\Column(type="string", length=100, unique=true, nullable=false)
    */
   private $slug;
@@ -42,22 +41,19 @@ class Horoscop
   /**
    * @var text $title
    * 
-   * @Gedmo\Translatable
    * @ORM\Column(length=255, nullable=true)
    */
   protected $title;
 
   /**
    * @var text $content
-   * @Gedmo\Translatable
    * @ORM\Column(type="text", length=20000, nullable=true)
    */
   protected $content;
 
   /**
    * @var text $short_content
-   * @Gedmo\Translatable
-   * @ORM\Column(type="text", length=20000, nullable=true)
+   * @ORM\Column(type="text", length=2000, nullable=true)
    */
   protected $short_content;
 
@@ -76,7 +72,7 @@ class Horoscop
   private $type;
   
   /**
-   * @var string homepage_status
+   * @var intiger homepage_status
    * 
    * @ORM\Column(type="integer")
    */
@@ -93,7 +89,6 @@ class Horoscop
    * @var datetime $created
    * 
    * @ORM\Column(name="created", type="datetime")
-   * @Gedmo\Timestampable(on="create")
    */
   protected $created;
 
@@ -101,21 +96,10 @@ class Horoscop
    * @var datetime $updated
    *
    * @ORM\Column(name="updated", type="datetime")
-   * @Gedmo\Timestampable
    */
   private $updated;
   
-  /**
-   * @ORM\OneToMany(targetEntity="HoroscopTranslations", mappedBy="object", cascade={"persist", "remove"})
-   */
-  protected $translations;
-
-  /**
-   * Required for Translatable behaviour
-   * @Gedmo\Locale
-   */
-  protected $locale;
-   
+ 
   /**
    * @var integer $image
    * @ORM\ManyToOne(targetEntity="MY\MediaBundle\Entity\Media", cascade={"persist"})
@@ -123,22 +107,19 @@ class Horoscop
   protected $image;
   
   /**
-   * @var integer $meta_title
-   * @Gedmo\Translatable
+   * @var string $meta_title
    * @ORM\Column(name="meta_title", type="string", length=200, nullable=true)
    */
   protected $meta_title;
 
   /**
-   * @var integer $meta_desc
-   * @Gedmo\Translatable
+   * @var string $meta_desc
    * @ORM\Column(name="meta_desc", type="string", length=300, nullable=true)
    */
   protected $meta_desc;
 
   /**
-   * @var integer $meta_kw
-   * @Gedmo\Translatable
+   * @var string $meta_kw
    * @ORM\Column(name="meta_kw", type="string", length=200, nullable=true)
    */
   protected $meta_kw;
@@ -149,13 +130,6 @@ class Horoscop
    */
   protected $gallery;
   
-  /**
-   * Constructor
-   */
-  public function __construct()
-  {
-    $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
-  }
   
   /**
    * Get id
@@ -442,41 +416,7 @@ class Horoscop
   {
     return $this->meta_kw;
   }
-  
-  /**
-   * Add translations
-   *
-   * @param \MY\MainBundle\Entity\HoroscopTranslations $translations
-   * @return Horoscop
-   */
-  public function addTranslation(\MY\MainBundle\Entity\HoroscopTranslations $translations)
-  {
-    $this->translations[] = $translations;
-    $translations->setObject($this);
-
-    return $this;
-  }
-
-  /**
-   * Remove translations
-   *
-   * @param \MY\MainBundle\Entity\HoroscopTranslations $translations
-   */
-  public function removeTranslation(\MY\MainBundle\Entity\HoroscopTranslations $translations)
-  {
-    $this->translations->removeElement($translations);
-  }
-
-  /**
-   * Get translations
-   *
-   * @return \Doctrine\Common\Collections\Collection 
-   */
-  public function getTranslations()
-  {
-    return $this->translations;
-  }
-      
+       
   /**
    * Set image
    *

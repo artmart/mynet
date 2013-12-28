@@ -16,8 +16,8 @@ class NewsAdmin extends Admin {
       '_sort_order' => 'DESC', // sort direction
       '_sort_by' => 'created' // field name
   );
-
-  /**
+  
+ /**
    * Row show configuration
    *
    * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
@@ -76,7 +76,7 @@ class NewsAdmin extends Admin {
             ->add('homepage_status', 'choice', array('choices' => array('1' => 'On', '0' => 'Off')))
             ->add('short_content', 'ckeditor')
             ->add('content', 'ckeditor')
-            ->add('image', 'sonata_type_model_list', array('required' => false), array('link_parameters' => array('context' => 'default', 'provider' => 'sonata.media.provider.image')))
+            ->add('image', 'sonata_type_model_list', array('required' => false), array('link_parameters' => array('context' => 'default')))
             ->add('gallery', 'sonata_type_model_list', array('required' => false), array('link_parameters' => array('context' => 'news_gallery')))
             ->end()
             /*->with('Translations')

@@ -37,16 +37,46 @@ class SliderAdmin extends Admin
    */
   protected function configureFormFields(FormMapper $formMapper)
   {
-    $languages = $this->configurationPool->getContainer()->getParameter('languages');
-
+    //$languages = $this->configurationPool->getContainer()->getParameter('languages');
+      
     $formMapper
             ->with('General')
             ->add('name', null, array('label' => 'name'))
             ->end()
             ->with('Media')
-              ->add('image', 'sonata_type_model_list', array('required' => false), array('link_parameters' => array('context' => 'slider')))
+            ->add('image', 'sonata_type_admin', array('delete' => false))
+            /*->add('image', 'sonata_media_type', array('label' => 'Նկար', 'provider' => 'sonata.media.provider.image')) 
+            
+             ->add('imageimage', 'sonata_type_model_list', array(), 
+                     array('link_parameters' => array('context' => 'slider'))) 
+            */
+           
+            /*
+            ->add('image', 'sonata_media_type',  
+                  array('required' => false, 'label' => 'Picture',
+                        'provider' => 'sonata.media.provider.image', 
+                        'context' => 'slider') 
+                     )*/
+          
+    /*          
+     ->add('image', 'sonata_type_model', array(), array(
+    'link_parameters' => array(
+        'context' => 'slider',
+        'provider' => 'sonata.media.provider.image',
+        'placeholder' => 'No image selected'
+        
+    ),
+))    
+    $this->add('image', 'sonata_type_model', array(), array(
+        'context' => 'slider', 'edit' => 'list')) */        
             ->end()
             ;
+    /*
+    $formMapper->add('image', 'sonata_media_type', array(
+    'provider' => 'sonata.media.provider.image',
+    'context'  => 'slider',
+));*/
+    
   }
 
   /**
@@ -59,5 +89,7 @@ class SliderAdmin extends Admin
     $datagridMapper
             ->add('name');
   }
+  
+  
 
 }
