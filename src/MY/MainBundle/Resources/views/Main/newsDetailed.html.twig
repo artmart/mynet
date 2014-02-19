@@ -32,17 +32,20 @@ MYYerevan | {{page.title}}
 {%block main%}
 
 <div>
-  {% for page in info %}
+  {% for detaile in info %}
     <div class="item-detailed clearfix">
-      <h4>{{ page.newsDate|date('d/m/Y') }}</h4>
-      <h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{page.title}}</h2>
-      <div class="intro"> {{page.content|raw}}</div>
-      {% if page.gallery %}
+       {% if (detaile.image is defined) and (detaile.image is not null) %}
+        {% thumbnail detaile.image, 'list' with{'alt': detaile.title, 'title' : detaile.title , 'width':'190px' , 'height': '130px'} %}
+       {% endif %}
+      <h4>{{ detaile.newsDate|date('d/m/Y') }}</h4>
+      <h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{detaile.title}}</h2>
+      <div class="intro"> {{detaile.content|raw}}</div>
+      {% if detaile.gallery %}
         <div class="sonata-media-gallery-media-list">
-          {% for i,galleryHasMedia in page.gallery.galleryHasMedias %}
+          {% for i,galleryHasMedia in detaile.gallery.galleryHasMedias %}
             <div class="news_gallery">
 	      <a class="sonata-media-gallery-media-item-link" rel="prettyPhoto[gallery2]" href="{% path galleryHasMedia.media, 'reference' %}">
-	        {% thumbnail galleryHasMedia.media, 'list' with{'title': page.title, 'alt': page.title, 'height' : '173'}%}
+	        {% thumbnail galleryHasMedia.media, 'list' with{'title': detaile.title, 'alt': detaile.title, 'height' : '173'}%}
         </a>
             </div>
           {% endfor %}

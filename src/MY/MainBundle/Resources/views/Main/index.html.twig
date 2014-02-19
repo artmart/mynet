@@ -172,65 +172,31 @@
 <article>
 <ul class="about_list">
     <h2 class="ind2">Նորություններ</h2>
-    
 {% for new in news %}
   <li>
    
             {% if (new.image is defined) and (new.image is not null) %}
               <figure>
               <a href="{{path('my_news_detailed', {'slug': new.slug})}}">
-                {% thumbnail new.image, 'home' with{'alt': new.name, 'title' : new.name} %}
+                {% thumbnail new.image, 'homepage' with{'alt': new.name, 'title' : new.name} %}
               </a>
               </figure>
             {% endif %}	
- {#<img src="/bundles/mymain/images/img1.jpg" alt=""/>#}
-           
 <div>
-<h6>
-<a href="{{path('my_news_detailed', {'slug': new.slug})}}">
-          {{new.title}}
-        </a>
-
-</h6>
-Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
-<a href="#" class="button">Ավելին</a>
+    <h6><a href="{{path('my_news_detailed', {'slug': new.slug})}}">{{new.name}}</a></h6>
+    {{new.shortcontent|raw}}
+    <br>
+    <a href="{{path('my_news_detailed', {'slug': new.slug})}}" class="button">Ավելին</a>
 </div>
-{#<div class="clear"></div>#}
+<div class="clear"></div>
 </li>
 {% endfor %} 
-<!--Added by Me-->
-<li>
-<figure><img src="/bundles/mymain/images/img1.jpg" alt=""/></figure>
-<div>
-<h6>Aliquam congue fermentum</h6>
-Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
-<a href="#" class="button">Ավելին</a>
-</div>
-{#<div class="clear"></div>#}
-</li>
-<!--  -->
- <h2 class="ind2">Հետաքրքրաշարժ</h2>
-<li>
-<figure><img src="/bundles/mymain/images/img2.jpg" alt=""/></figure>
-<div>
-<h6>Aliquam erat</h6>
-Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
-<a href="#" class="button">Ավելին</a>
-</div>
-{#<div class="clear"></div>#}
-</li>
-<li class="m_bottom_zero">
-<figure><img src="/bundles/mymain/images/img3.jpg" alt=""/></figure>
-<div>
-<h6>Donec dignissim</h6>
-Lorem ipsum dolor seceter adipiscing elit. Praesent sit hendreit mauris.<br>
-<a href="#" class="button">Ավելին</a>
-</div>
-{#<div class="clear"></div>#}
-</li>
+
+<!--  
+ <h2 class="ind2">Հետաքրքրաշարժ</h2>-->
 </ul>
 </article>
-
+<div class="clear"></div>
 {% endblock %}
 
 

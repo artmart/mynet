@@ -1,26 +1,18 @@
 parameters:
-    database_driver:   pdo_mysql
-    database_host:     127.0.0.1
-    database_port:     ~
-    database_name:     my
-    database_user:     root
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: my
+    database_user: root
     database_password: root
-
-    mailer_transport:  smtp
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
-
-    locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: 'This is a secret kay'
     fos_facebook_app_url: sovorel.am
     fos_facebook_server_url: sovorel.am
     fos_facebook_app_id: sovorel.am
     fos_facebook_secret: sovorel.am
-
-    
-    #facebook_client_id: sovorel.am
-    #facebook_client_secret: sovorel.am
-    
- 
-    
+    database_path: null

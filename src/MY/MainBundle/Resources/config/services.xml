@@ -10,6 +10,7 @@
     <parameter key="my.main.admin.concurs">Concurs</parameter>
     <parameter key="my.main.admin.realty">Realty</parameter>
     <parameter key="my.main.admin.ads">Ads</parameter>
+    <parameter key="my.main.admin.page">Page</parameter>
   </parameters> 
      
   <services>
@@ -17,10 +18,24 @@
       <tag name="twig.extension" />
       <argument type="service" id="service_container"></argument>
     </service>
-          
+     
+   <!--Page--> 
+    <service id="my.main.admin.page" class="MY\MainBundle\Admin\PageAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Site Blocks" label="Pages"/>
+      <argument/>
+      <argument>MY\MainBundle\Entity\Page</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="edit">MYMainBundle:Admin:edit_i18n.html.twig</argument>
+          <argument key="show">SonataAdminBundle:CRUD:show.html.twig</argument>
+        </argument>
+      </call>
+    </service> 
+                     
     <!-- interestings -->
     <service id="my.main.admin.interestings" class="MY\MainBundle\Admin\InterestingsAdmin">
-      <tag name="sonata.admin" manager_type="orm" group="%my.main.admin.interestings%" label="Interestings"/>
+      <tag name="sonata.admin" manager_type="orm" group="Site Blocks" label="Interestings"/>
       <argument/>
       <argument>MY\MainBundle\Entity\Interestings</argument>
       <argument>SonataAdminBundle:CRUD</argument>
@@ -34,7 +49,7 @@
         
     <!-- horoscop -->
     <service id="my.main.admin.horoscop" class="MY\MainBundle\Admin\HoroscopAdmin">
-      <tag name="sonata.admin" manager_type="orm" group="%my.main.admin.interestings%" label="Horoscop"/>
+      <tag name="sonata.admin" manager_type="orm" group="Site Blocks" label="Horoscop"/>
       <argument/>
       <argument>MY\MainBundle\Entity\Horoscop</argument>
       <argument>SonataAdminBundle:CRUD</argument>
@@ -48,7 +63,7 @@
     
     <!-- Concurs -->
     <service id="my.main.admin.concurs" class="MY\MainBundle\Admin\ConcursAdmin">
-      <tag name="sonata.admin" manager_type="orm" group="%my.main.admin.concurs%" label="Concurs"/>
+      <tag name="sonata.admin" manager_type="orm" group="Site Blocks" label="Concurs"/>
       <argument/>
       <argument>MY\MainBundle\Entity\Concurs</argument>
       <argument>SonataAdminBundle:CRUD</argument>
@@ -88,7 +103,7 @@
       </call>
     </service>
 
-    <!-- gallery -->
+    <!-- gallery 
     <service id="my.main.admin.gallery" class="MY\MainBundle\Admin\GalleryAdmin">
       <tag name="sonata.admin" manager_type="orm" group="Site Blocks" label="Gallery"/>
       <argument/>
@@ -100,7 +115,7 @@
           <argument key="show">SonataAdminBundle:CRUD:show.html.twig</argument>
         </argument>
       </call>
-    </service>
+    </service> -->
     
     
     <!-- ads 
@@ -144,7 +159,7 @@
                                                 
                                                      
                                                           
-                                                               
+     <!--                                                          
     <service id="my.main.admin.suggestion" class="MY\MainBundle\Admin\SuggestionAdmin">
       <tag name="sonata.admin" manager_type="orm" group="%my.main.admin.slider%" label="Suggestion"/>
       <argument/>
@@ -155,7 +170,7 @@
           <argument key="edit">MYMainBundle:Admin:edit_i18n.html.twig</argument>
         </argument>
       </call>
-     </service>                                                                   
+     </service>     -->                                                              
                                                                          
                                                                               
                                                                                    

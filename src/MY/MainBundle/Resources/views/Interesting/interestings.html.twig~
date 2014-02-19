@@ -29,6 +29,6 @@
     </div>
   {% endfor %}
   {# navigation #}
-  <div>{{ items.render()|raw }}</div>
+<div>{{knp_pagination_render(items)}}</div>
   </div>
 {% endblock %}

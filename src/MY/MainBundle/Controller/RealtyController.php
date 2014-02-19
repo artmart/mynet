@@ -29,7 +29,7 @@ class RealtyController extends Controller
     $pagination = $paginator->paginate(
             $items, $this->get('request')->query->get('page', 1)/* page number */, $per_page/* limit per page */
     );
-    return $this->render('MYMainBundle:Realty:realty.html.twig', array('items' => $pagination));
+    return $this->render('MYMainBundle:Realty:realty.html.twig', array('items' => $pagination, 'title'=>'menutop.legislation'));
     //return array('page' => 'news', 'pagination' => $pagination);
   }
   
@@ -52,7 +52,7 @@ class RealtyController extends Controller
     $pagination = $paginator->paginate(
             $items, $this->get('request')->query->get('page', 1)/* page number */, $per_page/* limit per page */
     );
-    return $this->render('MYMainBundle:Realty:realty.html.twig', array('items' => $pagination));
+    return $this->render('MYMainBundle:Realty:realty.html.twig', array('items' => $pagination, 'title'=>'menutop.dealing'));
     //return array('page' => 'news', 'pagination' => $pagination);
   }
  
@@ -75,7 +75,7 @@ class RealtyController extends Controller
     $pagination = $paginator->paginate(
             $items, $this->get('request')->query->get('page', 1)/* page number */, $per_page/* limit per page */
     );
-    return $this->render('MYMainBundle:Realty:realty.html.twig', array('items' => $pagination));
+    return $this->render('MYMainBundle:Realty:realty.html.twig', array('items' => $pagination, 'title'=>'menutop.registration'));
     //return array('page' => 'news', 'pagination' => $pagination);
   }
   
@@ -98,7 +98,7 @@ class RealtyController extends Controller
     $pagination = $paginator->paginate(
             $items, $this->get('request')->query->get('page', 1)/* page number */, $per_page/* limit per page */
     );
-    return $this->render('MYMainBundle:Realty:realty.html.twig', array('items' => $pagination));
+    return $this->render('MYMainBundle:Realty:realty.html.twig', array('items' => $pagination, 'title'=>'menutop.rent'));
     //return array('page' => 'news', 'pagination' => $pagination);
   }
    
@@ -121,7 +121,7 @@ class RealtyController extends Controller
     $pagination = $paginator->paginate(
             $items, $this->get('request')->query->get('page', 1)/* page number */, $per_page/* limit per page */
     );
-    return $this->render('MYMainBundle:Realty:realty.html.twig', array('items' => $pagination));
+    return $this->render('MYMainBundle:Realty:realty.html.twig', array('items' => $pagination, 'title'=>'menutop.consultation'));
     //return array('page' => 'news', 'pagination' => $pagination);
   }
    

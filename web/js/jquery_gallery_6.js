@@ -1,1 +1,0 @@
-$(document).ready(function(){$(".gallery ul.album li a").fancybox()});

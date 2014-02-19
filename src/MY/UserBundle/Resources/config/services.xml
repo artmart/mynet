@@ -6,22 +6,15 @@
 
     <!--
     <parameters>
-        <parameter key="my_user.example.class">MY\UserBundle\Example</parameter>
+        <parameter key="bs_user.example.class">BS\UserBundle\Example</parameter>
     </parameters>
 
     <services>
-        <service id="my_user.example" class="%my_user.example.class%">
+        <service id="bs_user.example" class="%bs_user.example.class%">
             <argument type="service" id="service_id" />
             <argument>plain_value</argument>
             <argument>%parameter_name%</argument>
         </service>
     </services>
     -->
-    <services>
-        <service id="my_user.registration.form.type" class="MY\UserBundle\Form\Type\RegistrationFormType">
-            <tag name="form.type" alias="my_user_registration" />
-            <argument>%fos_user.model.user.class%</argument>
-        </service>
-    </services>
 </container>
-

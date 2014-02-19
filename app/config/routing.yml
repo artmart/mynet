@@ -17,7 +17,7 @@ my_main:
     type:     annotation
     prefix:   /
 
-MYMainBundle:
+@MYMainBundle:
     resource: "@MYMainBundle/Resources/config/routing.yml"
     prefix: /
 
@@ -53,15 +53,6 @@ gallery:
 media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
     prefix: /media
-    
-# user
-_security_check:
-      pattern:  /loginFb
-_security_logout:
-      pattern:  /logout
-
-_security_login:
-      pattern:   /login    
     
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'

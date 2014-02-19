@@ -28,7 +28,7 @@ class InterestingController extends Controller
     $pagination = $paginator->paginate(
             $items, $this->get('request')->query->get('page', 1)/* page number */, $per_page/* limit per page */
     );
-    return $this->render('MYMainBundle:Interesting:interestings.html.twig', array('items' => $pagination));
+    return $this->render('MYMainBundle:Interesting:interestings.html.twig', array('items' => $pagination, 'title'=>'menutop.mens'));
     //return array('page' => 'news', 'pagination' => $pagination);
   }
 
@@ -73,7 +73,7 @@ class InterestingController extends Controller
     $pagination = $paginator->paginate(
             $items, $this->get('request')->query->get('page', 1)/* page number */, $per_page/* limit per page */
     );
-    return $this->render('MYMainBundle:Interesting:interestings.html.twig', array('items' => $pagination));
+    return $this->render('MYMainBundle:Interesting:interestings.html.twig', array('items' => $pagination, 'title'=>'menutop.womens'));
     //return array('page' => 'news', 'pagination' => $pagination);
   }
 
@@ -97,7 +97,7 @@ class InterestingController extends Controller
     $pagination = $paginator->paginate(
             $items, $this->get('request')->query->get('page', 1)/* page number */, $per_page/* limit per page */
     );
-    return $this->render('MYMainBundle:Interesting:interestings.html.twig', array('items' => $pagination));
+    return $this->render('MYMainBundle:Interesting:interestings.html.twig', array('items' => $pagination, 'title'=>'menutop.kids'));
     //return array('page' => 'news', 'pagination' => $pagination);
   }
 

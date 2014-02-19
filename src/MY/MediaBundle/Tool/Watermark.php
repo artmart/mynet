@@ -5,7 +5,7 @@ namespace MY\MediaBundle\Tool;
 /**
  * Description of Watermark
  *
- * @author Artak Martirosyan <artrmart@gmail.com>
+ * @author Vazgen Manukyan <vazgen.manukyan@gmail.com>
  */
 class Watermark
 {

@@ -26,11 +26,10 @@ class AppKernel extends Kernel
         new Sonata\jQueryBundle\SonatajQueryBundle(),
         new Sonata\AdminBundle\SonataAdminBundle(),
         new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
-        //new Sonata\IntlBundle\SonataIntlBundle(),
+        new Sonata\IntlBundle\SonataIntlBundle(),
         new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
         new Sonata\MediaBundle\SonataMediaBundle(),
-        new Sonata\CoreBundle\SonataCoreBundle(),
-        
+        //new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
         new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
         new Knp\Bundle\MenuBundle\KnpMenuBundle(),
         new FOS\UserBundle\FOSUserBundle(),
@@ -39,17 +38,15 @@ class AppKernel extends Kernel
         new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
         new Presta\SitemapBundle\PrestaSitemapBundle(),
         new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-        new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-        new Trsteel\CkeditorBundle\TrsteelCkeditorBundle(),
+	new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+	new Trsteel\CkeditorBundle\TrsteelCkeditorBundle(),
         new Genemu\Bundle\FormBundle\GenemuFormBundle(),
-        //new FOS\FacebookBundle\FOSFacebookBundle(),
-        new BCC\CronManagerBundle\BCCCronManagerBundle(),
-        //new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),        
+        
+        
         // required
         new MY\MainBundle\MYMainBundle(),
         new MY\UserBundle\MYUserBundle(),
-        new MY\MediaBundle\MYMediaBundle(), 
-        //new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+        new MY\MediaBundle\MYMediaBundle(),
         
     );
 

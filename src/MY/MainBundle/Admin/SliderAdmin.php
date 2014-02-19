@@ -44,12 +44,13 @@ class SliderAdmin extends Admin
             ->add('name', null, array('label' => 'name'))
             ->end()
             ->with('Media')
-            ->add('image', 'sonata_type_admin', array('delete' => false))
-            /*->add('image', 'sonata_media_type', array('label' => 'Նկար', 'provider' => 'sonata.media.provider.image')) 
+           /* ->add('image', 'sonata_type_admin', array('delete' => false))
+            ->add('image', 'sonata_media_type', array('label' => 'Նկար', 'provider' => 'sonata.media.provider.image')) 
+	    */
             
-             ->add('imageimage', 'sonata_type_model_list', array(), 
+             ->add('image', 'sonata_type_model_list', array('label' => 'Նկար',), 
                      array('link_parameters' => array('context' => 'slider'))) 
-            */
+            
            
             /*
             ->add('image', 'sonata_media_type',  

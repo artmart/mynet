@@ -1,6 +1,6 @@
-#my_homepage:
-#    pattern: /
-#    defaults: { _controller: MYMainBundle:Main:index }
+my_homepage:
+    pattern: /
+    defaults: { _controller: MYMainBundle:Main:index }
 
 #my_content_homepage:
 #    pattern: /{_locale}/

@@ -31,7 +31,8 @@
   {% endfor %}
     
   {# navigation #}
-    <div>{{knp_pagination_render(pagination)}}</div>
+    <div>{#{ knp_pagination_render(pagination)}#}
+{{ pagination.render()|raw }}</div>
   </div>
 </div>
 

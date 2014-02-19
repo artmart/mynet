@@ -14,11 +14,9 @@ framework:
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  %locale%
-    trusted_proxies: ~
+    trust_proxy_headers: false # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
     session:         ~
-    fragments:       ~
-    http_method_override: true
-    
+
 # Doctrine Extensions Configuration
 stof_doctrine_extensions:
       default_locale: en_US
@@ -105,7 +103,7 @@ sonata_admin:
             OPERATOR: OPERATOR
             MASTER: MASTER
             
-    title:      MyNet.am
+    title:      MyNet Project
     title_logo: /bundles/sonataadmin/logo_title.png
     templates:
         # default global templates
@@ -122,7 +120,7 @@ sonata_admin:
             - { position: left, type: sonata.admin.block.admin_list } 
 
             # Customize this part to add new block configuration
-            #- { position: right, type: sonata.block.service.text, settings: { content: "<h3>Cron</h3> Cron jobs can be found at <a href='/admin/cron-manager/' >Cron Manager</a>" } }
+           # - { position: right, type: sonata.block.service.text, settings: { content: "<h3>Cron</h3> Cron #jobs can be found at <a href='/admin/cron-manager/' >Cron Manager</a>" } }
             
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb'
@@ -176,16 +174,16 @@ sonata_media:
 
             formats:
                 list: { width: 200 , quality: 70}
-                homepage: { width: 225 , quality: 70}
+                homepage: { width: 155 , quality: 70}
                 lightbox: { width: 700 , quality: 70}
                 
-        news_gallery:
+        gallery:
             providers:
                 - sonata.media.provider.image
 
             formats:
                 list: { width: 225 , quality: 70}
-                home: { width: 107 , quality: 70}
+                home: { width: 155 , quality: 70}
                 
         slider:
             providers:
@@ -201,6 +199,7 @@ sonata_media:
             formats:
                 right: { width: 180 , quality: 70}
                 left: { width: 240 , quality: 70}
+        
 
     cdn:
         server:
@@ -243,7 +242,7 @@ knp_paginator:
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
 
 parameters:
-    items_per_page: 10
+    items_per_page: 2
     languages: 
       en: ENG
 
@@ -257,13 +256,11 @@ trsteel_ckeditor:
     toolbar_groups:
         document: ['Source']
     filebrowser_upload_url:
-        url: /upload/
-        
-########################
-#fos_facebook:
-  #  file:   %kernel.root_dir%/../vendor/facebook/php-sdk/src/base_facebook.php
-   # alias:  facebook
-   # app_id: %fos_facebook_app_id%
-   # secret: %fos_facebook_secret%
-   # cookie: true
-   # permissions: [email, user_birthday, user_location]
+        url: /uploads/
+
+
+# recaptcha
+genemu_form:
+    recaptcha:
+        public_key:  6LeYWMcSAAAAAFGeUexBltVF25GV_5YT1vduVvS1
+        private_key: 6LeYWMcSAAAAAPOC3fEIg5UwtHGZzO1HB1NZYx9F

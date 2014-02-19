@@ -6,7 +6,7 @@
 {%- block description -%}{{'news.description'|trans}}{%- endblock -%}
 
 {%block main%}
-<h2 class="content-title-{{app.request.attributes.get('_locale')}}">{{'menutop.news'|trans}}</h2>
+<h2{#class="content-title-{{app.request.attributes.get('_locale')}}"#}>{{title|trans}}</h2>
 <div class="category">
   {% for item in items %}
     <div class="item-row clearfix">
@@ -35,7 +35,9 @@
   {% endfor %}
     
   {# navigation #}
-    <div>{{knp_pagination_render(items)}}</div>
+    <div>{#{knp_pagination_render(items)}#}
+        {{ items.render()|raw }}
+    </div>
   </div>
 </div>
 

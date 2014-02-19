@@ -40,12 +40,12 @@ class AppKernel extends Kernel
         new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
 	new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 	new Trsteel\CkeditorBundle\TrsteelCkeditorBundle(),
-        //new Yit\AdsBundle\YitAdsBundle(),
+        
         
         // required
-        //new MY\MainBundle\MYMainBundle(),
-        //new MY\UserBundle\MYUserBundle(),
-        //new MY\MediaBundle\MYMediaBundle(),
+        new MY\MainBundle\MYMainBundle(),
+        new MY\UserBundle\MYUserBundle(),
+        new MY\MediaBundle\MYMediaBundle(),
         
     );
 

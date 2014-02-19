@@ -65,7 +65,7 @@ class InterestingsAdmin extends Admin {
    * @return void
    */
   protected function configureFormFields(FormMapper $formMapper) {
-    $languages = $this->configurationPool->getContainer()->getParameter('languages');
+   // $languages = $this->configurationPool->getContainer()->getParameter('languages');
 
     $formMapper
             ->with('General')

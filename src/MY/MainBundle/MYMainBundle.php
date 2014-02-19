@@ -9,7 +9,7 @@ use MY\MainBundle\Entity\Menu;
 
 class MYMainBundle extends Bundle
 {
-
+/*
   public function boot()
   {
     $router = $this->container->get('router');
@@ -123,6 +123,6 @@ class MYMainBundle extends Bundle
               }
             });
   }
-  
+  */
 
 }
